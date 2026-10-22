@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cfr5g0xlruap6"]
 
 [ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="2_0wfyh"]
 
 [node name="Main" type="Node2D" unique_id=1117636033]
 script = ExtResource("1_o5qli")
+
+[node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite2D" parent="." unique_id=1944805998]
+position = Vector2(-4, -1)
+texture = ExtResource("2_0wfyh")
