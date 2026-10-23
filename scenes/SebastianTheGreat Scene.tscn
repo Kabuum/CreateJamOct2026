@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cb88dufhukwf0"]
 
 [node name="SebastianTheGreatScene" type="Node3D" unique_id=333767603]
+
+[node name="Timer" type="Timer" parent="." unique_id=1601699045]
+wait_time = 60.0

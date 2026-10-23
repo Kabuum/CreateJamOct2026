@@ -3,9 +3,21 @@
 [ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="2_0wfyh"]
 
-[node name="Main" type="Node2D" unique_id=1117636033]
+[node name="Main" type="Node3D" unique_id=1199739485]
 script = ExtResource("1_o5qli")
 
-[node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite2D" parent="." unique_id=1944805998]
-position = Vector2(-4, -1)
+[node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite3D" parent="." unique_id=1092205985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, 0)
 texture = ExtResource("2_0wfyh")
+
+[node name="GameTimer" type="Timer" parent="." unique_id=79467407]
+wait_time = 60.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1620835099]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=2100226031]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1:00
+"
+metadata/_edit_use_anchors_ = true
