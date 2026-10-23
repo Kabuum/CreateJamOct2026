@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsiv6m2yyoks"
-path="res://.godot/imported/Avatar_Horse_Brown_Idle.png-bd31496774c5def20ea60a1b677e7e31.ctex"
+path="res://.godot/imported/T_Avatar_Horse_Brown_Idle.png-0ebcc85a58a6c82e1cb4ae36db958d11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Characters/MainCharacter/Avatar_Horse_Brown_Idle.png"
-dest_files=["res://.godot/imported/Avatar_Horse_Brown_Idle.png-bd31496774c5def20ea60a1b677e7e31.ctex"]
+source_file="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Idle.png"
+dest_files=["res://.godot/imported/T_Avatar_Horse_Brown_Idle.png-0ebcc85a58a6c82e1cb4ae36db958d11.ctex"]
 
 [params]
 
