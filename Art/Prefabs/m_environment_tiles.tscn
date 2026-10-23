@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d25sbueajkkp6"]
+
+[ext_resource type="PackedScene" uid="uid://dtxyhmh6osayo" path="res://Art/Environment/M_Environment_Tiles.fbx" id="1_kh3qh"]
+
+[node name="M_Environment_Tiles" unique_id=1260605761 instance=ExtResource("1_kh3qh")]
