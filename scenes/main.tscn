@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://bymsjw3a2mcj3" path="res://icon.svg" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=1117636033]
 script = ExtResource("1_o5qli")
@@ -9,3 +10,9 @@ script = ExtResource("1_o5qli")
 [node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite2D" parent="." unique_id=1944805998]
 position = Vector2(-4, -1)
 texture = ExtResource("2_0wfyh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=844684574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1671509, 0, 1.0508848)
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=289597127]
+texture = ExtResource("3_sugp2")
