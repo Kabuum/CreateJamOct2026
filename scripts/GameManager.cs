@@ -63,5 +63,27 @@ public partial class GameManager : Node
         Score += amount;
         GD.Print(Score);
     }
-	
+
+    public void DepositItems()
+    {
+        if (Inventory.Count == 0)
+        {
+            GD.Print("No items to deposit!");
+            return;
+        }
+
+        int totalValue = 0;
+
+        foreach (ItemData item in Inventory)
+        {
+            totalValue += item.ItemValue;
+        }
+
+        Inventory.Clear();
+
+        AddScore(totalValue);
+
+        GD.Print($"Deposited items worth {totalValue} points!");
+    }
+    
 }
