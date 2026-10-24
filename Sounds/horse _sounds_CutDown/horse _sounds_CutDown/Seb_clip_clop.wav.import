@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bed08xvqd41qg"
-path="res://.godot/imported/Seb_clip_clop.wav-cddefd79536d01b825a06ac7c47ec448.sample"
+path="res://.godot/imported/Seb_clip_clop.wav-3983d3725fa213d4545d042eaa156083.sample"
 
 [deps]
 
-source_file="res://Sounds/horse _sounds/Seb_clip_clop.wav"
-dest_files=["res://.godot/imported/Seb_clip_clop.wav-cddefd79536d01b825a06ac7c47ec448.sample"]
+source_file="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Seb_clip_clop.wav"
+dest_files=["res://.godot/imported/Seb_clip_clop.wav-3983d3725fa213d4545d042eaa156083.sample"]
 
 [params]
 
