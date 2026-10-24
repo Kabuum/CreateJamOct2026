@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObstacleData" format=3 uid="uid://dg4bwhtsjva6b"]
+
+[ext_resource type="Texture2D" uid="uid://bymsjw3a2mcj3" path="res://icon.svg" id="1_1ny1x"]
+[ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="1_thu5h"]
+
+[resource]
+script = ExtResource("1_thu5h")
+IsSlowness = true
+ObstacleSprite = ExtResource("1_1ny1x")
+ObstacleName = "Gramma"
+metadata/_custom_type_script = "uid://dkptc1ukw85n3"

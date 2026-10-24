@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsiv6m2yyoks"
-path="res://.godot/imported/Avatar_Horse_Brown_Idle.png-bd31496774c5def20ea60a1b677e7e31.ctex"
+uid="uid://cdumiwbbl4eq"
+path="res://.godot/imported/T_Avatar_ShoppingCart_Idle_Front.png-647ce5400b0c851be7195565e668f656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Characters/MainCharacter/Avatar_Horse_Brown_Idle.png"
-dest_files=["res://.godot/imported/Avatar_Horse_Brown_Idle.png-bd31496774c5def20ea60a1b677e7e31.ctex"]
+source_file="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Idle_Front.png"
+dest_files=["res://.godot/imported/T_Avatar_ShoppingCart_Idle_Front.png-647ce5400b0c851be7195565e668f656.ctex"]
 
 [params]
 

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://u0hwymxern0w"]
+
+[ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
+[ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+
+[node name="NetworkScene" type="Node3D" unique_id=1396918261]
+script = ExtResource("1_s8mej")
+player_scene = ExtResource("2_pgt45")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1786728726]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Players" type="Node3D" parent="." unique_id=1993888536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9447336, 0, 3.69936)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=109887506]
+_spawnable_scenes = PackedStringArray("uid://c8htr0b53sgeo")
+spawn_path = NodePath("../Players")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1987223382]
+
+[node name="HostButton" type="Button" parent="Menu" unique_id=1815343281]
+offset_left = 16.0
+offset_top = 364.0
+offset_right = 104.0
+offset_bottom = 452.0
+
+[node name="IPEdit" type="LineEdit" parent="Menu" unique_id=1497086759]
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 944.0
+offset_bottom = 161.0
+
+[node name="JoinButton" type="Button" parent="Menu" unique_id=604960559]
+offset_left = 15.0
+offset_top = 171.0
+offset_right = 91.0
+offset_bottom = 247.0
+
+[node name="Label" type="Label" parent="Menu" unique_id=1762733557]
+offset_left = 28.0
+offset_top = 321.0
+offset_right = 68.0
+offset_bottom = 344.0
+text = "HOST"
+
+[node name="IPLabel" type="Label" parent="Menu" unique_id=1809452679]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=586043719]
+transform = Transform3D(728.9189, 0, 0, 0, 1, 0, 0, 0, 1443.8704, 0, -4.811035, 0)
+use_collision = true

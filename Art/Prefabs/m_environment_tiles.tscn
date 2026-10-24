@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d25sbueajkkp6"]
+
+[ext_resource type="PackedScene" uid="uid://dtxyhmh6osayo" path="res://Art/Environment/M_Environment_Tiles.fbx" id="1_kh3qh"]
+[ext_resource type="Texture2D" uid="uid://cghfcwya48gni" path="res://Art/Environment/T_Environment_Tiles_Corner.png" id="2_mdorq"]
+[ext_resource type="Texture2D" uid="uid://cskb2xlnsrnvn" path="res://Art/Environment/T_Environment_Shelf_01.png" id="3_lg7do"]
+[ext_resource type="Texture2D" uid="uid://btag00t14kgct" path="res://Art/Environment/T_Environment_Shelf_03.png" id="4_kdebx"]
+[ext_resource type="Texture2D" uid="uid://wnaq2vgj27a2" path="res://Art/Environment/T_Environment_Shelf_04.png" id="5_pvo4v"]
+[ext_resource type="Texture2D" uid="uid://d3378i5q21tpn" path="res://Art/Environment/T_Environment_Shelf_02.png" id="6_w3swu"]
+[ext_resource type="Texture2D" uid="uid://bp2yy88o44ps2" path="res://Art/Environment/T_Environment_Tiles_Window.png" id="7_pvo4v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxg6y"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsje5"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur0i4"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx1wt"]
+shading_mode = 0
+albedo_texture = ExtResource("3_lg7do")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nimxs"]
+shading_mode = 0
+albedo_texture = ExtResource("4_kdebx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2bas"]
+shading_mode = 0
+albedo_texture = ExtResource("5_pvo4v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjtvm"]
+shading_mode = 0
+albedo_texture = ExtResource("6_w3swu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbgk0"]
+shading_mode = 0
+albedo_texture = ExtResource("7_pvo4v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_208np"]
+shading_mode = 0
+albedo_texture = ExtResource("7_pvo4v")
+
+[node name="M_Environment_Tiles" unique_id=1260605761 instance=ExtResource("1_kh3qh")]
+
+[node name="01_CornerCase" parent="." index="0" unique_id=343255846]
+surface_material_override/0 = SubResource("StandardMaterial3D_bxg6y")
+
+[node name="02_FillCase" parent="." index="1" unique_id=1527079382]
+surface_material_override/0 = SubResource("StandardMaterial3D_tsje5")
+
+[node name="03_SideCase" parent="." index="2" unique_id=1299804330]
+surface_material_override/0 = SubResource("StandardMaterial3D_ur0i4")
+
+[node name="05_Shelf" parent="." index="4" unique_id=1391395043]
+surface_material_override/0 = SubResource("StandardMaterial3D_lx1wt")
+
+[node name="06_Shelf" parent="." index="5" unique_id=1593971881]
+surface_material_override/0 = SubResource("StandardMaterial3D_nimxs")
+
+[node name="07_Shelf" parent="." index="6" unique_id=1858463696]
+surface_material_override/0 = SubResource("StandardMaterial3D_f2bas")
+
+[node name="08_Shelf" parent="." index="7" unique_id=979651533]
+surface_material_override/0 = SubResource("StandardMaterial3D_mjtvm")
+
+[node name="09_WindowCase_R" parent="." index="8" unique_id=938739637]
+surface_material_override/0 = SubResource("StandardMaterial3D_vbgk0")
+
+[node name="10_WindowCase_L" parent="." index="9" unique_id=89072997]
+surface_material_override/0 = SubResource("StandardMaterial3D_208np")

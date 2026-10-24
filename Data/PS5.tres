@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://nwbhl4n33irb"]
+
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_jv4m5"]
+[ext_resource type="Texture2D" uid="uid://cnss3yu4wht8t" path="res://Art/Items/PS5.png" id="1_oi7qs"]
+
+[resource]
+script = ExtResource("1_jv4m5")
+ItemValue = 100
+ItemSprite = ExtResource("1_oi7qs")
+ItemName = "PS5"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"

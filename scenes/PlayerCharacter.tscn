@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c8htr0b53sgeo"]
+
+[ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="1_cij07"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gu8p3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6clo"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cij07"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:drift_level")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
+collision_layer = 4
+script = ExtResource("1_cij07")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1454650636]
+mesh = SubResource("CapsuleMesh_gu8p3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1794986362]
+shape = SubResource("CapsuleShape3D_e6clo")
+
+[node name="Camera_Controller" type="Node3D" parent="." unique_id=1901728992]
+top_level = true
+
+[node name="Camera_Target" type="Node3D" parent="Camera_Controller" unique_id=1960741444]
+transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 1.6810024, 3.2891595)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target" unique_id=802380698]
+current = true
+
+[node name="WallSFX" type="AudioStreamPlayer3D" parent="." unique_id=1336860375]
+
+[node name="DriftSFX" type="AudioStreamPlayer3D" parent="." unique_id=514948795]
+
+[node name="HorseSFX" type="AudioStreamPlayer3D" parent="." unique_id=1727941882]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1439030162 groups=["Player"]]
+replication_config = SubResource("SceneReplicationConfig_cij07")
