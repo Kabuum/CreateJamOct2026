@@ -1,5 +1,35 @@
 [gd_scene format=3 uid="uid://d25sbueajkkp6"]
 
 [ext_resource type="PackedScene" uid="uid://dtxyhmh6osayo" path="res://Art/Environment/M_Environment_Tiles.fbx" id="1_kh3qh"]
+[ext_resource type="Texture2D" uid="uid://cghfcwya48gni" path="res://Art/Environment/T_Environment_Tiles_Corner.png" id="2_mdorq"]
+[ext_resource type="Texture2D" uid="uid://cskb2xlnsrnvn" path="res://Art/Environment/T_Environment_Shelf_01.png" id="3_lg7do"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxg6y"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsje5"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur0i4"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx1wt"]
+shading_mode = 0
+albedo_texture = ExtResource("3_lg7do")
 
 [node name="M_Environment_Tiles" unique_id=1260605761 instance=ExtResource("1_kh3qh")]
+
+[node name="01_CornerCase" parent="." index="0" unique_id=1723424377]
+surface_material_override/0 = SubResource("StandardMaterial3D_bxg6y")
+
+[node name="02_FillCase" parent="." index="1" unique_id=897339245]
+surface_material_override/0 = SubResource("StandardMaterial3D_tsje5")
+
+[node name="03_SideCase" parent="." index="2" unique_id=2078947690]
+surface_material_override/0 = SubResource("StandardMaterial3D_ur0i4")
+
+[node name="05_Shelf" parent="." index="4" unique_id=1760768418]
+surface_material_override/0 = SubResource("StandardMaterial3D_lx1wt")
