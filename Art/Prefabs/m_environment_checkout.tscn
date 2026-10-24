@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c3ldy1tdotf5p"]
+
+[ext_resource type="PackedScene" uid="uid://nqe8gy1ug1dr" path="res://Art/Environment/M_Environment_Checkout.fbx" id="1_ouppd"]
+[ext_resource type="Texture2D" uid="uid://cjiyexfvdklpr" path="res://Art/Environment/T_Environment_Checkout.png" id="2_mc7na"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m11hl"]
+shading_mode = 0
+albedo_texture = ExtResource("2_mc7na")
+
+[node name="M_Environment_Checkout" unique_id=859398837 instance=ExtResource("1_ouppd")]
+
+[node name="Checkout" parent="." index="0" unique_id=375586135]
+surface_material_override/0 = SubResource("StandardMaterial3D_m11hl")
