@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eatkwi1y5a7f"
+path="res://.godot/imported/pat_johnny_bravo.wav-d1418add74191bf074ff491e81a894c5.sample"
+
+[deps]
+
+source_file="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/pat_johnny_bravo.wav"
+dest_files=["res://.godot/imported/pat_johnny_bravo.wav-d1418add74191bf074ff491e81a894c5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

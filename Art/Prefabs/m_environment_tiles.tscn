@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtxyhmh6osayo" path="res://Art/Environment/M_Environment_Tiles.fbx" id="1_kh3qh"]
 [ext_resource type="Texture2D" uid="uid://cghfcwya48gni" path="res://Art/Environment/T_Environment_Tiles_Corner.png" id="2_mdorq"]
 [ext_resource type="Texture2D" uid="uid://cskb2xlnsrnvn" path="res://Art/Environment/T_Environment_Shelf_01.png" id="3_lg7do"]
+[ext_resource type="Texture2D" uid="uid://c0c75y1nf8apx" path="res://Art/Environment/T_Environment_Pillar.png" id="3_w3swu"]
 [ext_resource type="Texture2D" uid="uid://btag00t14kgct" path="res://Art/Environment/T_Environment_Shelf_03.png" id="4_kdebx"]
 [ext_resource type="Texture2D" uid="uid://wnaq2vgj27a2" path="res://Art/Environment/T_Environment_Shelf_04.png" id="5_pvo4v"]
 [ext_resource type="Texture2D" uid="uid://d3378i5q21tpn" path="res://Art/Environment/T_Environment_Shelf_02.png" id="6_w3swu"]
@@ -19,6 +20,10 @@ albedo_texture = ExtResource("2_mdorq")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur0i4"]
 shading_mode = 0
 albedo_texture = ExtResource("2_mdorq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmnj0"]
+shading_mode = 0
+albedo_texture = ExtResource("3_w3swu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx1wt"]
 shading_mode = 0
@@ -54,6 +59,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tsje5")
 
 [node name="03_SideCase" parent="." index="2" unique_id=1299804330]
 surface_material_override/0 = SubResource("StandardMaterial3D_ur0i4")
+
+[node name="04_Pillar" parent="." index="3" unique_id=1752407596]
+surface_material_override/0 = SubResource("StandardMaterial3D_dmnj0")
 
 [node name="05_Shelf" parent="." index="4" unique_id=1391395043]
 surface_material_override/0 = SubResource("StandardMaterial3D_lx1wt")

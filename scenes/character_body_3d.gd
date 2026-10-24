@@ -63,10 +63,10 @@ var anim_time := 0.0
 
 @export var min_steer_strength := 0.35
 
-var last_horse_index := -1
+@export var steer := 0.0
+@export var speed := 0.0
 
-var steer := 0.0
-var speed := 0.0
+var last_horse_index := -1
 var slow_timer := 0.0
 var slow_mult := 1.0
 var stun_anim_time := 0.0

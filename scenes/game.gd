@@ -26,6 +26,9 @@ func _on_host() -> void:
 	NetworkManager.host()
 	multiplayer.peer_disconnected.connect(_remove_player)
 	_open_lobby()
+	_spawn_player(1)
+	
+	$RoundManager.call("StartRound")
 
 func _on_join() -> void:
 	_set_buttons_disabled(true)

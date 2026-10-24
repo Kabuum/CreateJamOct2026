@@ -33,6 +33,12 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath(".:stun_timer")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+properties/4/path = NodePath(".:speed")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:steer")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

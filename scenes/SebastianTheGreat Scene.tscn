@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://miwkgsoxegag" path="res://Art/Items/Pickles.png" id="7_f5t63"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="9_f5t63"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="10_nn5ot"]
+[ext_resource type="PackedScene" uid="uid://cesjvlxdlki41" path="res://scenes/Exit_Zone.tscn" id="11_dxckc"]
 
 [sub_resource type="Resource" id="Resource_r72y2"]
 script = ExtResource("5_nn5ot")
@@ -117,9 +118,14 @@ material = SubResource("StandardMaterial3D_c4l5c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 horse_idle = null
 horse_turn = null
+stun_tex = null
 cart_back_idle = null
 cart_back_turn = null
 cart_front_idle = null
 cart_front_turn = null
+horse_sounds = Array[AudioStream]([])
 
 [node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("10_nn5ot")]
+
+[node name="ExitZone" parent="." unique_id=1433063705 instance=ExtResource("11_dxckc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.34351, -1.8172064, -16.367826)
