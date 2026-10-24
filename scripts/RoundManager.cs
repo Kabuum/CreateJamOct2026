@@ -411,7 +411,7 @@ public partial class RoundManager : Node
 				gate.Hide();
 			}
 		}
-		GD.Print($"Found {GetTree().GetNodesInGroup("TimedExit").Count} exit zones!");
+GD.Print($"Found {GetTree().GetNodesInGroup("TimedExit").Count} exit zones!");
 
 		// Activate all exit zones
 		foreach (Node node in GetTree().GetNodesInGroup("TimedExit"))

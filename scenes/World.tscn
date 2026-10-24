@@ -79,13 +79,13 @@ transform = Transform3D(1.3113416e-07, 0, 2, 0, 2, 0, -1, 0, 2.6226832e-07, 5.10
 [node name="M_Environment_Gate3" parent="." unique_id=534268572 instance=ExtResource("4_1lgw5")]
 transform = Transform3D(-2.1855693e-07, 0, -2, 0, 2, 0, 1, 0, -4.3711387e-07, 5.1000004, 0, 31.7)
 
-[node name="ExitZone" parent="." unique_id=1433063705 instance=ExtResource("5_7c4bj")]
+[node name="ExitZone" parent="." unique_id=1433063705 groups=["TimedExit"] instance=ExtResource("5_7c4bj")]
 transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 3.8, -21.40567, 1.8963017, 0)
 
-[node name="ExitZone2" parent="." unique_id=2003324865 instance=ExtResource("5_7c4bj")]
+[node name="ExitZone2" parent="." unique_id=2003324865 groups=["TimedExit"] instance=ExtResource("5_7c4bj")]
 transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.1830683, 1.8906436, -29.281073)
 
-[node name="ExitZone3" parent="." unique_id=1647617298 instance=ExtResource("5_7c4bj")]
+[node name="ExitZone3" parent="." unique_id=1647617298 groups=["TimedExit"] instance=ExtResource("5_7c4bj")]
 transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.018255, 1.861417, 32.141533)
 
 [node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082]
