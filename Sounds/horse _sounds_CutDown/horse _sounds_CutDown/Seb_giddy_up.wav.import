@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dbcf6xsc8ilwu"
-path="res://.godot/imported/Seb_giddy_up.wav-cb3cdfe108186c49e1e0f5824b932cb5.sample"
+path="res://.godot/imported/Seb_giddy_up.wav-26979cdf7c10f5a489a0bf8e6f18177a.sample"
 
 [deps]
 
-source_file="res://Sounds/horse _sounds/Seb_giddy_up.wav"
-dest_files=["res://.godot/imported/Seb_giddy_up.wav-cb3cdfe108186c49e1e0f5824b932cb5.sample"]
+source_file="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Seb_giddy_up.wav"
+dest_files=["res://.godot/imported/Seb_giddy_up.wav-26979cdf7c10f5a489a0bf8e6f18177a.sample"]
 
 [params]
 

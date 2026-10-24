@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dopdbdca5pwv8"
-path="res://.godot/imported/Sigurd_hay.wav-0195c28a12f39883bf6da6561e9660d0.sample"
+path="res://.godot/imported/Sigurd_hay.wav-b64e17c6846e3f5fea2b384fa20a4997.sample"
 
 [deps]
 
-source_file="res://Sounds/horse _sounds/Sigurd_hay.wav"
-dest_files=["res://.godot/imported/Sigurd_hay.wav-0195c28a12f39883bf6da6561e9660d0.sample"]
+source_file="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Sigurd_hay.wav"
+dest_files=["res://.godot/imported/Sigurd_hay.wav-b64e17c6846e3f5fea2b384fa20a4997.sample"]
 
 [params]
 
