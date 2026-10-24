@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://eatkwi1y5a7f"
-path="res://.godot/imported/pat_johnny_bravo.wav-21d615c9421d4aa294577cfc292998a3.sample"
+path="res://.godot/imported/pat_johnny_bravo.wav-a01d6f42bcd88f5759e5c6976677755d.sample"
 
 [deps]
 
-source_file="res://Sounds/pat_johnny_bravo.wav"
-dest_files=["res://.godot/imported/pat_johnny_bravo.wav-21d615c9421d4aa294577cfc292998a3.sample"]
+source_file="res://Sounds/horse _sounds/pat_johnny_bravo.wav"
+dest_files=["res://.godot/imported/pat_johnny_bravo.wav-a01d6f42bcd88f5759e5c6976677755d.sample"]
 
 [params]
 

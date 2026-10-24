@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwbspq8kyyh67"
-path="res://.godot/imported/unstable.wav-9b971b8eaf78b57816463ca9782a471d.sample"
+path="res://.godot/imported/unstable.wav-b597757ae9fef4f7f4949f2ed8c13921.sample"
 
 [deps]
 
-source_file="res://Sounds/unstable.wav"
-dest_files=["res://.godot/imported/unstable.wav-9b971b8eaf78b57816463ca9782a471d.sample"]
+source_file="res://Sounds/horse _sounds/unstable.wav"
+dest_files=["res://.godot/imported/unstable.wav-b597757ae9fef4f7f4949f2ed8c13921.sample"]
 
 [params]
 

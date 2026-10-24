@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bp4vrsg8kaa3b"
-path="res://.godot/imported/full_price.wav-3742cb80ab8f9efde5f0b600334d6216.sample"
+path="res://.godot/imported/full_price.wav-04766a7d0db29134ff9eff53f0981475.sample"
 
 [deps]
 
-source_file="res://Sounds/full_price.wav"
-dest_files=["res://.godot/imported/full_price.wav-3742cb80ab8f9efde5f0b600334d6216.sample"]
+source_file="res://Sounds/horse _sounds/full_price.wav"
+dest_files=["res://.godot/imported/full_price.wav-04766a7d0db29134ff9eff53f0981475.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cukrr6odvvtqq"
-path="res://.godot/imported/pat_heste_lyd.wav-1a04bfc06ba7ebd793eae8a325f183a5.sample"
+path="res://.godot/imported/pat_heste_lyd.wav-8b5a7b4449a5ab62655ac71534b1e899.sample"
 
 [deps]
 
-source_file="res://Sounds/pat_heste_lyd.wav"
-dest_files=["res://.godot/imported/pat_heste_lyd.wav-1a04bfc06ba7ebd793eae8a325f183a5.sample"]
+source_file="res://Sounds/horse _sounds/pat_heste_lyd.wav"
+dest_files=["res://.godot/imported/pat_heste_lyd.wav-8b5a7b4449a5ab62655ac71534b1e899.sample"]
 
 [params]
 
