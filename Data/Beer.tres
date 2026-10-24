@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dsi1uli1j60g8"]
+
+[ext_resource type="Texture2D" uid="uid://htomcan3e7as" path="res://Art/Items/Beer.png" id="1_45gsn"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_okts1"]
+
+[resource]
+script = ExtResource("1_okts1")
+ItemValue = 5
+ItemSprite = ExtResource("1_45gsn")
+ItemName = "Beer"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"

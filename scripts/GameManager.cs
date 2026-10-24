@@ -45,16 +45,16 @@ public partial class GameManager : Node
         }
     }
 
-    public void ObstacleHit(Node3D Obsicles, ObstacleData data)
+    public void ObstacleHit(Node3D Player, Node3D Obsicles, ObstacleData data)
     {
         if (data.IsSlowness){
-        Player1.Call("apply_slow", 3f, 0.5f);
+        Player.Call("apply_slow", 3f, 0.5f);
         }
         else
         {
-        Vector3 dir = (Player1.GlobalPosition - Obsicles.GlobalPosition).Normalized();
+        Vector3 dir = (Player.GlobalPosition - Obsicles.GlobalPosition).Normalized();
         Vector3 impulse = dir * 30;
-        Player1.Call("apply_knockback", impulse, 0.5f);
+        Player.Call("apply_knockback", impulse, 0.5f);
         }
     }
 

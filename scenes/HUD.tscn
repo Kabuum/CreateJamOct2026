@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmfq610m1aoq4"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1509272599]
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1981740522]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1:00
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=329463504]
+offset_left = 525.0
+offset_right = 586.0
+offset_bottom = 23.0
+text = "Score: 0"

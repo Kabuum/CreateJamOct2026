@@ -35,7 +35,7 @@ public partial class Obstacles : Area3D
 	{
 
 		GD.Print("Hit ", body.Name);
-		gameManager.ObstacleHit(this, Data);
+		gameManager.ObstacleHit(body, this, Data);
 		GetParent().QueueFree();
 		
 

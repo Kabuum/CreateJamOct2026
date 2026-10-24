@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://c8htr0b53sgeo"]
 
 [ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="1_cij07"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gu8p3"]
+[ext_resource type="Texture2D" uid="uid://dx362u8ehdpp3" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Idle_Back.png" id="2_w4u4s"]
+[ext_resource type="Texture2D" uid="uid://cdumiwbbl4eq" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Idle_Front.png" id="3_bjtiv"]
+[ext_resource type="Texture2D" uid="uid://bqshmsnhhurbe" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Turn.png" id="3_gk71f"]
+[ext_resource type="Texture2D" uid="uid://bsiv6m2yyoks" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Idle.png" id="4_8dtrg"]
+[ext_resource type="Texture2D" uid="uid://dgowgued0ggqm" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Back.png" id="5_iqs6o"]
+[ext_resource type="Texture2D" uid="uid://cux6dnk717jbw" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Front.png" id="7_abydg"]
+[ext_resource type="Texture2D" uid="uid://bhbflwtkm71b2" path="res://Art/Characters/MainCharacter/T_Avatar_Stun.png" id="8_iqs6o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6clo"]
 
@@ -16,13 +21,20 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath(".:drift_level")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:stun_timer")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 4
 script = ExtResource("1_cij07")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1454650636]
-mesh = SubResource("CapsuleMesh_gu8p3")
+horse_idle = ExtResource("4_8dtrg")
+horse_turn = ExtResource("3_gk71f")
+cart_back_idle = ExtResource("2_w4u4s")
+cart_back_turn = ExtResource("5_iqs6o")
+cart_front_idle = ExtResource("3_bjtiv")
+cart_front_turn = ExtResource("7_abydg")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1794986362]
 shape = SubResource("CapsuleShape3D_e6clo")
@@ -44,3 +56,22 @@ current = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1439030162 groups=["Player"]]
 replication_config = SubResource("SceneReplicationConfig_cij07")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=219231895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36990094, 0)
+
+[node name="CartBack" type="Sprite3D" parent="Visuals" unique_id=1792027764]
+billboard = 1
+texture = ExtResource("2_w4u4s")
+
+[node name="CartFront" type="Sprite3D" parent="Visuals" unique_id=1141038167]
+billboard = 1
+texture = ExtResource("3_bjtiv")
+
+[node name="Horse" type="Sprite3D" parent="Visuals" unique_id=1967811824]
+billboard = 1
+
+[node name="Stun" type="Sprite3D" parent="Visuals" unique_id=1075210453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8397696, 0)
+billboard = 1
+texture = ExtResource("8_iqs6o")

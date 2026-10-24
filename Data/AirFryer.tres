@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bawnj6bj08ita"]
+
+[ext_resource type="Texture2D" uid="uid://brwbr8b7wk40p" path="res://Art/Items/Air Fryer.png" id="1_n4e5c"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_rqh08"]
+
+[resource]
+script = ExtResource("1_rqh08")
+ItemValue = 50
+ItemSprite = ExtResource("1_n4e5c")
+ItemName = "Air Fryer"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"

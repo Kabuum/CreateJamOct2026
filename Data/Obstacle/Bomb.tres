@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObstacleData" format=3 uid="uid://joathcfpdpuo"]
+
+[ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="1_jx7iu"]
+[ext_resource type="Texture2D" uid="uid://bwbg0k2oxqlwk" path="res://Art/Items/Bomb.png" id="1_mvhtb"]
+
+[resource]
+script = ExtResource("1_jx7iu")
+ObstacleSprite = ExtResource("1_mvhtb")
+ObstacleName = "Bomb"
+metadata/_custom_type_script = "uid://dkptc1ukw85n3"

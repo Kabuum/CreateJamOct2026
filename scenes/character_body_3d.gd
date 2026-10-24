@@ -1,5 +1,28 @@
 extends CharacterBody3D
 
+@export_group("Sprites")
+@export var horse_idle: Texture2D
+@export var horse_turn: Texture2D
+@export var stun_tex: Texture2D
+@export var cart_back_idle: Texture2D
+@export var cart_back_turn: Texture2D
+@export var cart_front_idle: Texture2D
+@export var cart_front_turn: Texture2D
+@export var horse_idle_frames := 7
+@export var horse_turn_frames := 7
+@export var stun_frames := 6
+@export var anim_fps := 10.0
+@export var turn_treshhold := 0.25
+@export var sprite_pixel_size := 0.003
+@export var texture_filter := BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+
+@onready var horse_sprite: Sprite3D = $Visuals/Horse
+@onready var cart_front_sprite: Sprite3D = $Visuals/CartFront
+@onready var cart_back_sprite: Sprite3D = $Visuals/CartBack
+@onready var stun_sprite: Sprite3D = $Visuals/Stun
+var anim_time := 0.0
+
+
 @export_group("Speed")
 @export var max_speed := 20.0
 @export var acceleration := 6.0
@@ -23,6 +46,7 @@ extends CharacterBody3D
 @export_group("Slow effect")
 @export var slow_multiplier := 0.4
 @export var slow_duration := 2.0
+@export var stun_timer := 0.0
 
 @export_group("Sound Effects")
 @export var horse_sounds: Array[AudioStream]
@@ -40,9 +64,9 @@ var last_horse_index := -1
 
 var steer := 0.0
 var speed := 0.0
-var stun_timer := 0.0
 var slow_timer := 0.0
 var slow_mult := 1.0
+var stun_anim_time := 0.0
 
 func _physics_process(delta: float) -> void:
 	_update_drift_sound()
@@ -170,7 +194,50 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	stun_sprite.hframes = stun_frames
+	_setup_sprite(cart_front_sprite, 0)
+	_setup_sprite(cart_back_sprite, 1)
+	_setup_sprite(horse_sprite, 2)
+	_setup_sprite(stun_sprite, 3)
+	_update_visuals(0.0)
+	
 	if is_multiplayer_authority():
 		$Camera_Controller/Camera_Target/Camera3D.current = true
 	else: 
 		$Camera_Controller.queue_free()
+
+func _setup_sprite(s: Sprite3D, priority: int) -> void:
+	s.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	s.pixel_size = sprite_pixel_size
+	s.render_priority = priority
+	s.texture_filter = texture_filter
+	s.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+	s.shaded = false
+func _process(delta: float) -> void:
+	_update_visuals(delta, stun_timer > 0)
+	
+func _update_visuals(delta: float, stunned: bool = false) -> void:
+	var turning := absf(steer) > turn_treshhold
+	var flip := turning and steer > 0.0
+	
+	horse_sprite.texture = horse_turn if turning else horse_idle
+	horse_sprite.hframes = horse_turn_frames if turning else horse_idle_frames
+	cart_front_sprite.texture = cart_front_turn if turning else cart_front_idle
+	cart_back_sprite.texture = cart_back_turn if turning else cart_back_idle
+	stun_sprite.texture = stun_tex
+	
+	horse_sprite.flip_h = flip
+	cart_back_sprite.flip_h = flip
+	cart_front_sprite.flip_h = flip
+	
+	if stunned:
+		stun_sprite.visible = true
+		stun_anim_time += delta * anim_fps
+		stun_sprite.frame = int(stun_anim_time) % maxi(stun_sprite.hframes, 1)
+	else:
+		stun_sprite.visible = false
+		stun_anim_time = 0.0
+	
+	var speed_ratio := clampf(speed / max_speed, 0.0, 1.0)
+	anim_time += delta * anim_fps * speed_ratio
+	horse_sprite.frame = int(anim_time) % maxi(horse_sprite.hframes, 1)

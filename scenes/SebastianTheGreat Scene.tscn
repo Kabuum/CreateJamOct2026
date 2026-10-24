@@ -2,29 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="1_iqk3y"]
 [ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_m6lm8"]
-[ext_resource type="Script" uid="uid://crgaeckpjnugn" path="res://scripts/ItemSpawner.cs" id="3_r72y2"]
-[ext_resource type="PackedScene" uid="uid://b7j7qjbwfol2m" path="res://scenes/item.tscn" id="4_agxml"]
-[ext_resource type="Script" uid="uid://dfs3hkyex7v0q" path="res://scripts/DepositZone.cs" id="5_agxml"]
-[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="5_nn5ot"]
-[ext_resource type="Texture2D" uid="uid://dkskqcmxockmx" path="res://Art/Items/Energy drink.png" id="6_w5sii"]
-[ext_resource type="Texture2D" uid="uid://miwkgsoxegag" path="res://Art/Items/Pickles.png" id="7_f5t63"]
+[ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="3_c4l5c"]
+[ext_resource type="PackedScene" uid="uid://bh6ue3yt1quyx" path="res://scenes/item_spawner.tscn" id="4_w5sii"]
+[ext_resource type="PackedScene" uid="uid://46g2pydoofka" path="res://scenes/deposit_zone.tscn" id="5_f5t63"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="9_f5t63"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="10_nn5ot"]
-
-[sub_resource type="Resource" id="Resource_r72y2"]
-script = ExtResource("5_nn5ot")
-ItemValue = 15
-ItemSprite = ExtResource("6_w5sii")
-metadata/_custom_type_script = "uid://bsd0xmtn52g40"
-
-[sub_resource type="Resource" id="Resource_agxml"]
-script = ExtResource("5_nn5ot")
-ItemValue = 10
-ItemSprite = ExtResource("7_f5t63")
-metadata/_custom_type_script = "uid://bsd0xmtn52g40"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
-size = Vector3(1, 1, 1.0089111)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r72y2"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -52,45 +34,12 @@ texture = ExtResource("1_iqk3y")
 [node name="GameTimer" type="Timer" parent="." unique_id=1913167464]
 wait_time = 60.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1151211744]
+[node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("3_c4l5c")]
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1429941176]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1:00
-"
-metadata/_edit_use_anchors_ = true
+[node name="ItemSpawner" parent="." unique_id=752916546 instance=ExtResource("4_w5sii")]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1133797566]
-offset_left = 525.0
-offset_right = 586.0
-offset_bottom = 23.0
-text = "Score: 0"
-
-[node name="ItemSpawner" type="Node3D" parent="." unique_id=1721143343]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.868053, -1.8063753, 0)
-script = ExtResource("3_r72y2")
-itemScene = ExtResource("4_agxml")
-ItemPool = Array[ExtResource("5_nn5ot")]([SubResource("Resource_r72y2"), SubResource("Resource_agxml")])
-
-[node name="SpawnTimer" type="Timer" parent="ItemSpawner" unique_id=60790621]
-wait_time = 5.0
-
-[node name="SpawnPoint1" type="Marker3D" parent="ItemSpawner" unique_id=530537300]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.28154, 0, 0)
-
-[node name="SpawnPoint2" type="Marker3D" parent="ItemSpawner" unique_id=1452190865]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5385895, 0, 3.6999474)
-
-[node name="DepositZone" type="Area3D" parent="." unique_id=1559259746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.856964, 0, -24.456844)
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("5_agxml")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DepositZone" unique_id=531950006]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.3611197, 0.8423214)
-shape = SubResource("BoxShape3D_r5iys")
+[node name="DepositZone" parent="." unique_id=302882421 instance=ExtResource("5_f5t63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.499835, 0.071332455, -5.3298216)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1087475142]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
