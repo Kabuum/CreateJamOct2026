@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 public partial class ItemSpawner : Node3D
 {
@@ -11,6 +12,8 @@ public partial class ItemSpawner : Node3D
     private readonly RandomNumberGenerator random = new();
 
     [Export] private Godot.Collections.Array<Marker3D> spawnPoints = new();
+
+    private readonly Dictionary<Marker3D, Node3D> occupiedPoints = new();
 
     [Export] public Godot.Collections.Array<ItemData> ItemPool = new();
 
@@ -60,10 +63,29 @@ public partial class ItemSpawner : Node3D
             return;
         }
 
-        // Select a random spawn point
-        int index = random.RandiRange(0, spawnPoints.Count - 1);
+        // Find all available spawn points
+        List<Marker3D> availablePoints = new();
 
-        Marker3D spawnPoint = spawnPoints[index];
+        foreach (Marker3D point in spawnPoints)
+        {
+            if (!occupiedPoints.TryGetValue(point, out Node3D existingItem)
+                || !GodotObject.IsInstanceValid(existingItem))
+            {
+                availablePoints.Add(point);
+            }
+        }
+
+        // Stop if all spawn points are occupied
+        if (availablePoints.Count == 0)
+        {
+            GD.Print("All spawn points are occupied!");
+            return;
+        }
+
+        // Select a random available spawn point
+        int index = random.RandiRange(0, availablePoints.Count - 1);
+
+        Marker3D spawnPoint = availablePoints[index];
 
         // Select a random item
         int itemIndex = random.RandiRange(0, ItemPool.Count - 1);
@@ -76,7 +98,10 @@ public partial class ItemSpawner : Node3D
         };
 
         // Spawn item across multiplayer
-        itemMultiplayerSpawner.Spawn(spawnData);
+        Node3D itemRoot = (Node3D)itemMultiplayerSpawner.Spawn(spawnData);
+
+        // Remember which item occupies this spawn point
+        occupiedPoints[spawnPoint] = itemRoot;
 
         GD.Print($"Item spawned at {spawnPoint.Name}");
     }
