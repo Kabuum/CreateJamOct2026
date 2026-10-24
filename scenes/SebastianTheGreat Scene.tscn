@@ -10,9 +10,6 @@
 [ext_resource type="Resource" uid="uid://cig2jlfadavvh" path="res://Data/Monster.tres" id="7_43e0y"]
 [ext_resource type="Resource" uid="uid://dvtyo43sm5hdr" path="res://Data/Pickles.tres" id="8_qxr2p"]
 [ext_resource type="Resource" uid="uid://nwbhl4n33irb" path="res://Data/PS5.tres" id="9_7kx4b"]
-[ext_resource type="Script" uid="uid://dxvqu3ik38ofs" path="res://scripts/DepositZone.cs" id="5_agxml"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r72y2"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -47,20 +44,11 @@ wait_time = 60.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1151211744]
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1429941176]
-offset_left = 4.0
-offset_top = 11.0
-offset_right = 44.0
-offset_bottom = 60.0
+offset_right = 40.0
+offset_bottom = 23.0
 text = "1:00
 "
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1311625117]
-offset_left = 517.0
-offset_top = 11.0
-offset_right = 578.0
-offset_bottom = 34.0
-text = "Score: 0"
 
 [node name="ItemSpawner" type="Node3D" parent="." unique_id=1721143343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.868053, -1.8063753, 0)
@@ -76,15 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.28154, 0, 0)
 
 [node name="SpawnPoint2" type="Marker3D" parent="ItemSpawner" unique_id=1452190865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5385895, 0, 3.6999474)
-
-[node name="DepositZone" type="Area3D" parent="." unique_id=2038546189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.01826, 0, -42.86293)
-script = ExtResource("5_agxml")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DepositZone" unique_id=973116220]
-transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 10, 0, -2.1532865, 0)
-shape = SubResource("BoxShape3D_r5iys")
-debug_color = Color(0.2869751, 0.6317952, 0, 0.41960785)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1087475142]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -135,13 +114,8 @@ use_collision = true
 size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_c4l5c")
 
-<<<<<<< Updated upstream
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1010647090]
 collision_layer = 4
-=======
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1010647090 groups=["Player"]]
-collision_layer = 5
->>>>>>> Stashed changes
 script = ExtResource("3_iaqks")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1265247349]
