@@ -25,7 +25,7 @@ public partial class ObstacleSpawner : Node
         // Start spawning
         spawnTimer.Start();
 
-        for(int i = 0; i < spawnPoints.Count; i++)
+        /*for(int i = 0; i < spawnPoints.Count; i++)
         {
             spawnPoints[i].Position = new Vector3(
                 spawnPoints[i].Position.X,
@@ -33,7 +33,7 @@ public partial class ObstacleSpawner : Node
                 spawnPoints[i].Position.Z
             );
             GD.Print(spawnPoints[i].Position);
-        }
+        }*/
     }
 
     public void SpawnObstacle()
