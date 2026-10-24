@@ -17,6 +17,8 @@ public partial class RoundManager : Node
 	private CanvasLayer spectatorHud;
 	private Label spectatorLabel;
 	private bool spectatorEscaped;
+	private Timer gameTimer;
+	private bool gatesOpened = false;
     private bool roundStarted = false;
     private bool roundEnded = false;
 
@@ -26,6 +28,7 @@ public partial class RoundManager : Node
 
         Multiplayer.PeerConnected += OnPeerConnected;
         Multiplayer.PeerDisconnected += OnPeerDisconnected;
+		gameTimer = GetNode<Timer>("GameTimer");
     }
 
     public override void _ExitTree()
@@ -57,6 +60,13 @@ public partial class RoundManager : Node
                 players.Add(playerId);
             }
         }
+		// Reset the gates for the round
+		gatesOpened = false;
+
+		// Start the match countdown
+		gameTimer.Start();
+
+		GD.Print("Round started! Countdown is running.");
     }
 
     private void OnPeerConnected(long peerId)
@@ -291,6 +301,7 @@ public partial class RoundManager : Node
         }
 
         roundEnded = true;
+		gameTimer.Stop();
 
         StringBuilder results = new();
 
@@ -382,4 +393,43 @@ public partial class RoundManager : Node
         // Reload NetworkScene, including its existing Host/Join menu
         GetTree().ReloadCurrentScene();
     }
+	[Rpc(
+		MultiplayerApi.RpcMode.Authority,
+		CallLocal = true,
+		TransferMode = MultiplayerPeer.TransferModeEnum.Reliable
+	)]
+	private void OpenGates()
+	{
+		foreach (Node node in GetTree().GetNodesInGroup("TimedGate"))
+		{
+			Node3D gate = node.GetNodeOrNull<Node3D>("exit_gate");
+
+			if (gate != null)
+			{
+				gate.Hide();
+			}
+		}
+
+		GD.Print("All gates opened!");
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		if (!Multiplayer.IsServer() || !roundStarted || roundEnded)
+		{
+			return;
+		}
+
+		if (gatesOpened || gameTimer.IsStopped())
+		{
+			return;
+		}
+
+		if (gameTimer.TimeLeft <= 20)
+		{
+			gatesOpened = true;
+
+			Rpc(MethodName.OpenGates);
+		}
+	}
 }
