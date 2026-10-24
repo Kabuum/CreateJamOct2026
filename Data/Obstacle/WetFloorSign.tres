@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObstacleData" format=3 uid="uid://cqms7878gbqo6"]
+
+[ext_resource type="Texture2D" uid="uid://cjpx7vuf7opel" path="res://Art/Items/WetFloor.png" id="1_0fmi0"]
+[ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="1_k8p87"]
+
+[resource]
+script = ExtResource("1_k8p87")
+IsSlowness = true
+ObstacleSprite = ExtResource("1_0fmi0")
+ObstacleName = "WetFloorSign"
+metadata/_custom_type_script = "uid://dkptc1ukw85n3"
