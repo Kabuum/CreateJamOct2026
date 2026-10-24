@@ -1,23 +1,25 @@
 [gd_scene format=3 uid="uid://cfr5g0xlruap6"]
 
 [ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bh6ue3yt1quyx" path="res://scenes/item_spawner.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d1weaai8jhacw" path="res://scenes/obstacle_spawner.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=1199739485]
 script = ExtResource("1_o5qli")
 
-[node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite3D" parent="." unique_id=1092205985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, 0)
-texture = ExtResource("2_0wfyh")
-
 [node name="GameTimer" type="Timer" parent="." unique_id=79467407]
 wait_time = 60.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1620835099]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1637725228]
+transform = Transform3D(728.9189, 0, 0, 0, 1, 0, 0, 0, 1443.8704, 0, -4.811035, 0)
+use_collision = true
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=2100226031]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1:00
-"
-metadata/_edit_use_anchors_ = true
+[node name="ItemSpawner" parent="." unique_id=752916546 instance=ExtResource("2_0wfyh")]
+
+[node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("3_jyhfs")]
+
+[node name="ObstacleSpawner" parent="." unique_id=1414794209 instance=ExtResource("4_tbgi4")]
+
+[node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("5_tbgi4")]

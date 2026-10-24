@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://blnkwlm3sysd6"]
 
+[ext_resource type="PackedScene" uid="uid://d1weaai8jhacw" path="res://scenes/obstacle_spawner.tscn" id="2_1dtj2"]
 [ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="2_c58o5"]
 [ext_resource type="PackedScene" uid="uid://cotvrfp6gpbt5" path="res://scenes/Obstacles.tscn" id="2_wve88"]
-[ext_resource type="Script" uid="uid://ckiscel82o30i" path="res://scripts/ObstacleSpawner.cs" id="3_wve88"]
-[ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="4_1bwym"]
-[ext_resource type="Resource" uid="uid://dg4bwhtsjva6b" path="res://Data/Obstacle/Gramma.tres" id="5_a4rx2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c58o5"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -76,16 +74,7 @@ material = SubResource("StandardMaterial3D_wve88")
 [node name="Node3D" parent="." unique_id=506882466 instance=ExtResource("2_wve88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.067627, -1.0979474, 0.018307865)
 
-[node name="ObstacleSpawner" type="Node3D" parent="." unique_id=503212061]
-script = ExtResource("3_wve88")
-itemScene = ExtResource("2_wve88")
-ObstaclePool = Array[ExtResource("4_1bwym")]([ExtResource("5_a4rx2")])
-
-[node name="SpawnTimer" type="Timer" parent="ObstacleSpawner" unique_id=1447954055]
-wait_time = 2.0
-
-[node name="SpawnPoint 1" type="Marker3D" parent="ObstacleSpawner" unique_id=118212540]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.274292, -1.0968667, 0)
+[node name="ObstacleSpawner" parent="." unique_id=1414794209 instance=ExtResource("2_1dtj2")]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1560009844 groups=["Player"]]
 collision_layer = 4
