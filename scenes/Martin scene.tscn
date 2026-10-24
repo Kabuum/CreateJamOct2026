@@ -8,12 +8,12 @@ sky_horizon_color = Color(1.0308638, 1.0393777, 1.0296316, 1)
 ground_bottom_color = Color(0.45002425, 0.50621974, 0.47368032, 1)
 ground_horizon_color = Color(1.0308638, 1.0393777, 1.0296316, 1)
 
-[sub_resource type="Sky" id="Sky_374aa"]
+[sub_resource type="Sky" id="Sky_e6clo"]
 sky_material = SubResource("ProceduralSkyMaterial_e6clo")
 
 [sub_resource type="Environment" id="Environment_a0q8b"]
 background_mode = 2
-sky = SubResource("Sky_374aa")
+sky = SubResource("Sky_e6clo")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxq8v"]
 albedo_color = Color(0.57935166, 4.379898e-06, 0.375585, 1)
