@@ -51,7 +51,7 @@ var anim_time := 0.0
 @export_group("Sound Effects")
 @export var horse_sounds: Array[AudioStream]
 @export var wall_min_volume := 0.25
-@export var drift_max_volume := 0.8
+@export var drift_max_volume := 0.2
 @export var drift_ramp_up := 4.0 
 @export var drift_ramp_down := 6.0
 @export var drift_level := 0.0
@@ -59,6 +59,8 @@ var anim_time := 0.0
 @onready var wall_sfx : AudioStreamPlayer3D  = $WallSFX
 @onready var drift_sfx : AudioStreamPlayer3D  = $DriftSFX
 @onready var horse_sfx : AudioStreamPlayer3D  = $HorseSFX
+
+@export var min_steer_strength := 0.35
 
 var last_horse_index := -1
 
@@ -85,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	speed = move_toward(speed, current_max, acceleration * delta)
 	
 	var horizontal := Vector3(velocity.x, 0.0, velocity.z)
-	var steer_strength := clampf(horizontal.length() / full_steer_speed, 0.0, 1.0)
+	var steer_strength := clampf(horizontal.length() / full_steer_speed, min_steer_strength, 1.0)
 	rotate_y(-steer * turn_rate * steer_strength * delta)
 	
 	#drift sound

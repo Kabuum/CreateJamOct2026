@@ -35,11 +35,30 @@ public partial class Item : Area3D
 
 	public void Collected(Node3D body)
 	{
+		GD.Print($"Item touched by: {body.Name}");
+		GD.Print($"Is server: {Multiplayer.IsServer()}");
 
-		GD.Print("Entered by: ", body.Name);
-		gameManager.ItemCollected(Data);
-		GetParent().QueueFree();
+		if (body is CollisionObject3D collider)
+		{
+			GD.Print($"Player layer 3: {collider.GetCollisionLayerValue(3)}");
+		}
 		
+		if (!Multiplayer.IsServer())
+		{
+			return;
+		}
 
+		if (body is not CharacterBody3D player || !player.GetCollisionLayerValue(3))
+		{
+			return;
+		}
+
+		int playerId = player.GetMultiplayerAuthority();
+
+		GD.Print($"Player {playerId} collected {Data.ItemName}");
+
+		gameManager.ItemCollected(playerId, Data);
+
+		GetParent().QueueFree();
 	}
 }

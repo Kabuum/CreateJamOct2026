@@ -69,3 +69,6 @@ ItemPool = Array[ExtResource("3_jqlno")]([SubResource("Resource_ecbsi"), SubReso
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1785552942]
 wait_time = 5.0
+
+[node name="ItemMultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=142906286]
+spawn_path = NodePath("..")
