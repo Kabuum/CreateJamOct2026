@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
 [ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
+[ext_resource type="Script" uid="uid://du3p182vc5w2y" path="res://scripts/RoundManager.cs" id="4_tktvb"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
 script = ExtResource("1_s8mej")
@@ -87,3 +88,6 @@ text = "Start Game"
 [node name="StatusLabel" type="Label" parent="Menu/Lobby/VBoxContainer" unique_id=1836055807]
 layout_mode = 2
 text = "Waiting For Host"
+
+[node name="RoundManager" type="Node" parent="." unique_id=234566709]
+script = ExtResource("4_tktvb")
