@@ -1,9 +1,14 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection.Metadata;
 using Godot;
 
 public partial class GameManager : Node
-{
+{   
     public static GameManager Instance { get; private set; }
-
+    public List<ItemData> Inventory = new List<ItemData>();
+    public int Score = 0;
     private const string MainScene = "res://scenes/main.tscn";
     private const string DeathScene = "res://scenes/death screen.tscn";
     private const string WinScene = "res://scenes/win screen.tscn";
@@ -29,7 +34,21 @@ public partial class GameManager : Node
     {
         GD.Print("- RESTARTING GAME -");
         GetTree().ChangeSceneToFile(MainScene);
+        Score = 0;
     }
 
+    public void ItemCollected(ItemData data)
+    {
+        Inventory.Add(data);   
+        for(int i = 0; i < Inventory.Count; i++){
+            GD.Print(Inventory[i].Name);
+        }
+    }
+
+    public void AddScore(int amount)
+    {
+        Score += amount;
+        GD.Print(Score);
+    }
 	
 }
