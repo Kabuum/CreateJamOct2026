@@ -37,23 +37,23 @@ albedo_texture = ExtResource("6_w3swu")
 
 [node name="M_Environment_Tiles" unique_id=1260605761 instance=ExtResource("1_kh3qh")]
 
-[node name="01_CornerCase" parent="." index="0" unique_id=1723424377]
+[node name="01_CornerCase" parent="." index="0" unique_id=71441145]
 surface_material_override/0 = SubResource("StandardMaterial3D_bxg6y")
 
-[node name="02_FillCase" parent="." index="1" unique_id=897339245]
+[node name="02_FillCase" parent="." index="1" unique_id=1036667505]
 surface_material_override/0 = SubResource("StandardMaterial3D_tsje5")
 
-[node name="03_SideCase" parent="." index="2" unique_id=2078947690]
+[node name="03_SideCase" parent="." index="2" unique_id=1858362632]
 surface_material_override/0 = SubResource("StandardMaterial3D_ur0i4")
 
-[node name="05_Shelf" parent="." index="4" unique_id=1760768418]
+[node name="05_Shelf" parent="." index="4" unique_id=910892380]
 surface_material_override/0 = SubResource("StandardMaterial3D_lx1wt")
 
-[node name="06_Shelf" parent="." index="5" unique_id=1075765271]
+[node name="06_Shelf" parent="." index="5" unique_id=2133071842]
 surface_material_override/0 = SubResource("StandardMaterial3D_nimxs")
 
-[node name="07_Shelf" parent="." index="6" unique_id=839492248]
+[node name="07_Shelf" parent="." index="6" unique_id=508953641]
 surface_material_override/0 = SubResource("StandardMaterial3D_f2bas")
 
-[node name="08_Shelf" parent="." index="7" unique_id=1901631050]
+[node name="08_Shelf" parent="." index="7" unique_id=1510410085]
 surface_material_override/0 = SubResource("StandardMaterial3D_mjtvm")
