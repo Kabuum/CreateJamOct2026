@@ -53,22 +53,37 @@ func _on_server_disconnected() -> void:
 func _on_game_started(lobby_players: Dictionary) -> void:
 	if not multiplayer.is_server():
 		return
-
+	
+	var points := _get_spawn_points()
 	var slot := 0
 	for id in lobby_players:
 		spawner.spawn({
 			"id": id,
-			"slot": slot,
 			"name": lobby_players[id].name,
-			"skin": lobby_players[id].skin
+			"skin": lobby_players[id].skin,
+			"transform": _spawn_transform(points, slot),
 		})
 		slot += 1
 
+func _get_spawn_points() -> Array[Node3D]:
+	var points: Array[Node3D] = []
+	for n in get_tree().get_nodes_in_group("spawn_points"):
+		points.append(n as Node3D)
+	return points
+
+func _spawn_transform(points: Array[Node3D], slot: int) -> Transform3D:
+	if points.is_empty():
+		push_warning("No nodes in group spawn points, using fallback positions")
+		return Transform3D(Basis.IDENTITY, Vector3(slot * 3.0, 1.0, 0.0))
+		
+	var t := points[slot % points.size()].global_transform
+	t.basis = t.basis.orthonormalized()
+	return players.global_transform.affine_inverse() * t
+	
 func _spawn_player(data: Dictionary) -> Node:
 	var p := player_scene.instantiate() as PlayerCharacter
 	p.name = str(data.id)
-	p.position = Vector3(data.slot % 4 * 3.0, 1.0, 0.0)
-	p.set_multiplayer_authority(data.id)
+	p.transform = data.transform
 	p.setup(data.name, data.skin)
 	return p
 
