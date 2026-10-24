@@ -411,7 +411,6 @@ public partial class RoundManager : Node
 				gate.Hide();
 			}
 		}
-GD.Print($"Found {GetTree().GetNodesInGroup("TimedExit").Count} exit zones!");
 
 		// Activate all exit zones
 		foreach (Node node in GetTree().GetNodesInGroup("TimedExit"))
@@ -424,10 +423,16 @@ GD.Print($"Found {GetTree().GetNodesInGroup("TimedExit").Count} exit zones!");
 
 		GD.Print("All gates and exits opened!");
 	}
-
 	public override void _PhysicsProcess(double delta)
 	{
-		if (!Multiplayer.IsServer() || !roundStarted || roundEnded)
+		// Don't process when the round isn't running
+		if (!roundStarted || roundEnded)
+		{
+			return;
+		}
+
+		// Don't process without a multiplayer connection
+		if (Multiplayer.MultiplayerPeer == null || !Multiplayer.IsServer())
 		{
 			return;
 		}
