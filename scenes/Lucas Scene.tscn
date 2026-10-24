@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://blnkwlm3sysd6"]
 
+[ext_resource type="Script" uid="uid://dseo6dyteg57e" path="res://scripts/Item.cs" id="1_c58o5"]
+[ext_resource type="Texture2D" uid="uid://bsiv6m2yyoks" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Idle.png" id="2_wve88"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1574"]
+
 [node name="LucasScene" type="Node3D" unique_id=1788353889]
+
+[node name="Billboard" type="Node3D" parent="." unique_id=656943094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66893e-06, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Billboard" unique_id=76692724]
+billboard = 1
+texture = ExtResource("2_wve88")
+
+[node name="Area3D" type="Area3D" parent="Billboard" unique_id=220525425]
+disable_mode = 1
+script = ExtResource("1_c58o5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard/Area3D" unique_id=1054205459]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_f1574")
+
+[connection signal="body_entered" from="Billboard/Area3D" to="Billboard" method="Collected"]
