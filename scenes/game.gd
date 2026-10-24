@@ -16,6 +16,8 @@ func _on_host() -> void:
 	multiplayer.peer_connected.connect(_spawn_player)
 	multiplayer.peer_disconnected.connect(_remove_player)
 	_spawn_player(1)
+	
+	$RoundManager.call("StartRound")
 
 func _on_join() -> void:
 	NetworkManager.join(ip_edit.text.strip_edges())
