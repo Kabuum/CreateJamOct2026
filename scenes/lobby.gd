@@ -91,3 +91,6 @@ func begin() -> void:
 	started = true
 	hide()
 	game_started.emit(players)
+
+	if multiplayer.is_server():
+		get_node("../../RoundManager").call("StartRound")

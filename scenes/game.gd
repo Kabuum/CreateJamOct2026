@@ -26,9 +26,6 @@ func _on_host() -> void:
 	NetworkManager.host()
 	multiplayer.peer_disconnected.connect(_remove_player)
 	_open_lobby()
-	_spawn_player(1)
-	
-	$RoundManager.call("StartRound")
 
 func _on_join() -> void:
 	_set_buttons_disabled(true)
@@ -56,6 +53,7 @@ func _on_server_disconnected() -> void:
 func _on_game_started(lobby_players: Dictionary) -> void:
 	if not multiplayer.is_server():
 		return
+
 	var slot := 0
 	for id in lobby_players:
 		spawner.spawn({
