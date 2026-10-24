@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://b7j7qjbwfol2m" path="res://scenes/item.tscn" id="1_nget0"]
 [ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="2_c58o5"]
-[ext_resource type="Script" uid="uid://dseo6dyteg57e" path="res://scripts/Item.cs" id="3_wve88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c58o5"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -20,11 +19,9 @@ sky = SubResource("Sky_374aa")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wve88"]
 albedo_color = Color(0.57935166, 4.379898e-06, 0.375585, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1dtj2"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c58o5"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1bwym"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1574"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wve88"]
 
 [node name="LucasScene" type="Node3D" unique_id=1788353889]
 
@@ -34,10 +31,22 @@ environment = SubResource("Environment_wve88")
 [node name="Items" type="Node" parent="." unique_id=1022447652]
 
 [node name="Item" parent="Items" unique_id=436714800 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.19419, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.446144, 0, 3.6663818)
 
-[node name="Item2" parent="Items" unique_id=113006920 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0163555, 1.3951681, -0.901968)
+[node name="Item2" parent="Items" unique_id=842420473 instance=ExtResource("1_nget0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.443718, 0, 7.3327637)
+
+[node name="Item3" parent="Items" unique_id=1896031981 instance=ExtResource("1_nget0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.94843, 0, -0.5552559)
+
+[node name="Item4" parent="Items" unique_id=1790886735 instance=ExtResource("1_nget0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.76226, 0, -0.34342766)
+
+[node name="Item5" parent="Items" unique_id=987215687 instance=ExtResource("1_nget0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.5231, -22.695808, -20.106012)
+
+[node name="Item6" parent="Items" unique_id=68364336 instance=ExtResource("1_nget0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.41436, 15.348839, -27.89816)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1443879713]
 transform = Transform3D(37.450443, 0, 0, 0, 0.1423159, 0, 0, 0, 22.18525, -110.07239, -2.7554543, 0.5484009)
@@ -81,34 +90,18 @@ use_collision = true
 size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_wve88")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=215684983]
-collision_layer = 3
-collision_mask = 3
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1709291909]
+collision_layer = 4
 script = ExtResource("2_c58o5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=650958818]
-layers = 3
-mesh = SubResource("CapsuleMesh_1dtj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=560786642]
+mesh = SubResource("CapsuleMesh_c58o5")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1562006260]
-shape = SubResource("CapsuleShape3D_1bwym")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1193963026]
+shape = SubResource("CapsuleShape3D_wve88")
 
-[node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=39008987]
+[node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=1767357644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9365058, 1.6928747)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=291119517]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=2045962617]
 transform = Transform3D(1, 0, 0, 0, 0.9737726, 0.2275235, 0, -0.2275235, 0.9737726, 0, 0.82232094, 1.2135916)
-
-[node name="Item" parent="." unique_id=1470668481 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6353774, 0.5493429, 2.1613219)
-
-[node name="Area3D2" type="Area3D" parent="Item" unique_id=1460909604]
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("3_wve88")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Item/Area3D2" unique_id=795498388]
-transform = Transform3D(4.285, 0, 0, 0, 4.285, 0, 0, 0, 4.285, 0, 0, 0)
-shape = SubResource("CylinderShape3D_f1574")
-
-[connection signal="body_entered" from="Item/Area3D2" to="Item/Area3D2" method="Collected"]
