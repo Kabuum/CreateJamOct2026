@@ -14,7 +14,9 @@ public partial class RoundManager : Node
     private readonly Dictionary<int, bool> finishedPlayers = new();
 
     private Camera3D spectatorCamera;
-
+	private CanvasLayer spectatorHud;
+	private Label spectatorLabel;
+	private bool spectatorEscaped;
     private bool roundStarted = false;
     private bool roundEnded = false;
 
@@ -134,29 +136,70 @@ public partial class RoundManager : Node
         finishedPlayers[playerId] = escaped;
 
         // Only the player who finished starts spectating
-        if (playerId != Multiplayer.GetUniqueId())
-        {
-            return;
-        }
+		if (playerId != Multiplayer.GetUniqueId())
+		{
+			return;
+		}
 
-        StartSpectating();
+		StartSpectating(escaped);
     }
 
-    private void StartSpectating()
-    {
-        if (spectatorCamera != null)
-        {
-            return;
-        }
+	private void StartSpectating(bool escaped)
+	{
+		if (spectatorCamera != null)
+		{
+			return;
+		}
 
-        spectatorCamera = new Camera3D();
+		spectatorEscaped = escaped;
 
-        GetTree().CurrentScene.AddChild(spectatorCamera);
+		// Create spectator camera
+		spectatorCamera = new Camera3D();
 
-        spectatorCamera.MakeCurrent();
+		GetTree().CurrentScene.AddChild(spectatorCamera);
 
-        GD.Print("Spectator mode enabled!");
-    }
+		spectatorCamera.MakeCurrent();
+
+		// Create spectator HUD
+		spectatorHud = new CanvasLayer();
+		spectatorHud.Layer = 10;
+
+		AddChild(spectatorHud);
+
+		// Create notification label
+		spectatorLabel = new Label();
+
+		spectatorLabel.HorizontalAlignment = HorizontalAlignment.Center;
+		spectatorLabel.VerticalAlignment = VerticalAlignment.Center;
+		spectatorLabel.MouseFilter = Control.MouseFilterEnum.Ignore;
+
+		spectatorHud.AddChild(spectatorLabel);
+
+		// Position notification at the top of the screen
+		spectatorLabel.SetAnchorsPreset(Control.LayoutPreset.TopWide);
+
+		spectatorLabel.OffsetTop = 20;
+		spectatorLabel.OffsetBottom = 110;
+
+		// Text appearance
+		spectatorLabel.AddThemeFontSizeOverride("font_size", 32);
+		spectatorLabel.AddThemeColorOverride("font_outline_color", Colors.Black);
+		spectatorLabel.AddThemeConstantOverride("outline_size", 6);
+
+		// Different colors depending on outcome
+		if (escaped)
+		{
+			spectatorLabel.AddThemeColorOverride("font_color", Colors.LightGreen);
+			spectatorLabel.Text = "YOU ESCAPED!\nSpectating...";
+		}
+		else
+		{
+			spectatorLabel.AddThemeColorOverride("font_color", Colors.OrangeRed);
+			spectatorLabel.Text = "YOU WERE CAUGHT!\nSpectating...";
+		}
+
+		GD.Print("Spectator mode enabled!");
+	}
 
     public override void _Process(double delta)
     {
@@ -191,28 +234,39 @@ public partial class RoundManager : Node
             break;
         }
 
-        if (target == null)
-        {
-            return;
-        }
+		if (target == null)
+		{
+			return;
+		}
 
-        // Position our spectator camera behind the target
-        Vector3 offset = new Vector3(0, 3, 6);
+		// Update spectator notification
+		if (spectatorLabel != null)
+		{
+			string status = spectatorEscaped
+				? "YOU ESCAPED!"
+				: "YOU WERE CAUGHT!";
 
-        Vector3 cameraPosition =
-            target.GlobalPosition +
-            target.GlobalTransform.Basis * offset;
+			spectatorLabel.Text = $"{status}\nSpectating Player {target.Name}";
+		}
 
-        spectatorCamera.GlobalPosition =
-            spectatorCamera.GlobalPosition.Lerp(
-                cameraPosition,
-                Mathf.Min(1f, (float)delta * 10f)
-            );
+		// Position our spectator camera behind the target
+		Vector3 offset = new Vector3(0, 3, 6);
 
-        spectatorCamera.LookAt(
-            target.GlobalPosition + Vector3.Up * 1.5f,
-            Vector3.Up
-        );
+		Vector3 cameraPosition =
+			target.GlobalPosition +
+			target.GlobalTransform.Basis * offset;
+
+		spectatorCamera.GlobalPosition =
+			spectatorCamera.GlobalPosition.Lerp(
+				cameraPosition,
+				Mathf.Min(1f, (float)delta * 10f)
+			);
+
+		spectatorCamera.LookAt(
+			target.GlobalPosition + Vector3.Up * 1.5f,
+			Vector3.Up
+		);
+
     }
 
     private void CheckRoundFinished()
@@ -274,6 +328,15 @@ public partial class RoundManager : Node
             spectatorCamera.QueueFree();
             spectatorCamera = null;
         }
+
+		if (spectatorHud != null)
+		{
+			spectatorHud.Hide();
+			spectatorHud.QueueFree();
+
+			spectatorHud = null;
+			spectatorLabel = null;
+		}
 
         // Results overlay
         CanvasLayer canvas = new();
