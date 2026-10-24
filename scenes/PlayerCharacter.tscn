@@ -90,3 +90,8 @@ billboard = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8397696, 0)
 billboard = 1
 texture = ExtResource("8_iqs6o")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=854989964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1584456, 0)
+billboard = 1
+render_priority = 4

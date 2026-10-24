@@ -1,3 +1,4 @@
+class_name PlayerCharacter
 extends CharacterBody3D
 
 @export_group("Sprites")
@@ -69,6 +70,9 @@ var speed := 0.0
 var slow_timer := 0.0
 var slow_mult := 1.0
 var stun_anim_time := 0.0
+var display_name := ""
+var skin_index := 0
+
 
 func _physics_process(delta: float) -> void:
 	_update_drift_sound()
@@ -196,6 +200,7 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	$Label3D.text = display_name
 	stun_sprite.hframes = stun_frames
 	_setup_sprite(cart_front_sprite, 0)
 	_setup_sprite(cart_back_sprite, 1)
@@ -243,3 +248,7 @@ func _update_visuals(delta: float, stunned: bool = false) -> void:
 	var speed_ratio := clampf(speed / max_speed, 0.0, 1.0)
 	anim_time += delta * anim_fps * speed_ratio
 	horse_sprite.frame = int(anim_time) % maxi(horse_sprite.hframes, 1)
+
+func setup(n: String, s: int) -> void:
+	display_name = n
+	skin_index = s

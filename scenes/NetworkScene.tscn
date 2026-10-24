@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+[ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
 script = ExtResource("1_s8mej")
@@ -20,40 +21,69 @@ spawn_path = NodePath("../Players")
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1987223382]
 
-[node name="HostButton" type="Button" parent="Menu" unique_id=1815343281]
+[node name="ConnectPanel" type="Control" parent="Menu" unique_id=1450148808]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HostButton" type="Button" parent="Menu/ConnectPanel" unique_id=1815343281]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 364.0
 offset_right = 104.0
 offset_bottom = 452.0
 
-[node name="IPEdit" type="LineEdit" parent="Menu" unique_id=1497086759]
+[node name="IPEdit" type="LineEdit" parent="Menu/ConnectPanel" unique_id=1497086759]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0
 offset_right = 944.0
 offset_bottom = 161.0
 
-[node name="JoinButton" type="Button" parent="Menu" unique_id=604960559]
+[node name="JoinButton" type="Button" parent="Menu/ConnectPanel" unique_id=604960559]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 171.0
 offset_right = 91.0
 offset_bottom = 247.0
 
-[node name="Label" type="Label" parent="Menu" unique_id=1762733557]
+[node name="Label" type="Label" parent="Menu/ConnectPanel" unique_id=1762733557]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 321.0
-offset_right = 68.0
+offset_right = 71.0
 offset_bottom = 344.0
 text = "HOST"
 
-[node name="IPLabel" type="Label" parent="Menu" unique_id=1809452679]
+[node name="Lobby" type="Control" parent="Menu" unique_id=2126478081]
+visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+script = ExtResource("3_pgt45")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=586043719]
-transform = Transform3D(728.9189, 0, 0, 0, 1, 0, 0, 0, 1443.8704, 0, -4.811035, 0)
-use_collision = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Lobby" unique_id=387153380]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=305332212]
-transform = Transform3D(19.89655, 0, 0, 0, 50.89065, 0, 0, 0, 18.676544, 0, 17.17966, -27.66579)
-use_collision = true
-size = Vector3(1, 1.5565186, 1)
+[node name="NameEdit" type="LineEdit" parent="Menu/Lobby/VBoxContainer" unique_id=1275932560]
+layout_mode = 2
+placeholder_text = "Your Name"
+
+[node name="SkinOption" type="OptionButton" parent="Menu/Lobby/VBoxContainer" unique_id=2144552161]
+layout_mode = 2
+
+[node name="PlayerList" type="ItemList" parent="Menu/Lobby/VBoxContainer" unique_id=31715117]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Menu/Lobby/VBoxContainer" unique_id=1242270663]
+layout_mode = 2
+text = "Start Game"
+
+[node name="StatusLabel" type="Label" parent="Menu/Lobby/VBoxContainer" unique_id=1836055807]
+layout_mode = 2
+text = "Waiting For Host"
