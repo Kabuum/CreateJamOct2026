@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+[ext_resource type="Script" uid="uid://du3p182vc5w2y" path="res://scripts/RoundManager.cs" id="3_pgt45"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
 script = ExtResource("1_s8mej")
@@ -51,9 +52,14 @@ offset_bottom = 23.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=586043719]
 transform = Transform3D(728.9189, 0, 0, 0, 1, 0, 0, 0, 1443.8704, 0, -4.811035, 0)
+visible = false
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=305332212]
 transform = Transform3D(19.89655, 0, 0, 0, 50.89065, 0, 0, 0, 18.676544, 0, 17.17966, -27.66579)
+visible = false
 use_collision = true
 size = Vector3(1, 1.5565186, 1)
+
+[node name="RoundManager" type="Node" parent="." unique_id=1382718290]
+script = ExtResource("3_pgt45")

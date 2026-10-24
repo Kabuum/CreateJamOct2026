@@ -198,4 +198,11 @@ public partial class GameManager : Node
             );
         }
     }
+
+    public void ResetRoundData()
+    {
+        inventories.Clear();
+        scores.Clear();
+        inventoryCounts.Clear();
+    }
 }
