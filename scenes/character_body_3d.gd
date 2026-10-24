@@ -60,6 +60,8 @@ var anim_time := 0.0
 @onready var drift_sfx : AudioStreamPlayer3D  = $DriftSFX
 @onready var horse_sfx : AudioStreamPlayer3D  = $HorseSFX
 
+@export var min_steer_strength := 0.35
+
 var last_horse_index := -1
 
 var steer := 0.0
@@ -85,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	speed = move_toward(speed, current_max, acceleration * delta)
 	
 	var horizontal := Vector3(velocity.x, 0.0, velocity.z)
-	var steer_strength := clampf(horizontal.length() / full_steer_speed, 0.0, 1.0)
+	var steer_strength := clampf(horizontal.length() / full_steer_speed, min_steer_strength, 1.0)
 	rotate_y(-steer * turn_rate * steer_strength * delta)
 	
 	#drift sound
