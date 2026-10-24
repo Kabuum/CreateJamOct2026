@@ -7,15 +7,22 @@ public partial class DepositZone : Area3D
         BodyEntered += OnBodyEntered;
     }
 
-    private void OnBodyEntered(Node3D body)
-    {
-        if (!body.IsInGroup("Player"))
-        {
-            return;
-        }
+	private void OnBodyEntered(Node3D body)
+	{
+		if (!Multiplayer.IsServer())
+		{
+			return;
+		}
 
-        GD.Print("Player entered deposit zone!");
+		if (body is not CharacterBody3D player || !player.GetCollisionLayerValue(3))
+		{
+			return;
+		}
 
-        GameManager.Instance.DepositItems();
-    }
+		int playerId = player.GetMultiplayerAuthority();
+
+		GD.Print($"Player {playerId} entered deposit zone!");
+
+		GameManager.Instance.DepositItems(playerId);
+	}
 }

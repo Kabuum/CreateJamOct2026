@@ -5,8 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="3_c4l5c"]
 [ext_resource type="PackedScene" uid="uid://bh6ue3yt1quyx" path="res://scenes/item_spawner.tscn" id="4_w5sii"]
 [ext_resource type="PackedScene" uid="uid://46g2pydoofka" path="res://scenes/deposit_zone.tscn" id="5_f5t63"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="5_nn5ot"]
+[ext_resource type="Texture2D" uid="uid://dkskqcmxockmx" path="res://Art/Items/Energy drink.png" id="6_w5sii"]
+[ext_resource type="Texture2D" uid="uid://miwkgsoxegag" path="res://Art/Items/Pickles.png" id="7_f5t63"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="9_f5t63"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="10_nn5ot"]
+
+[sub_resource type="Resource" id="Resource_r72y2"]
+script = ExtResource("5_nn5ot")
+ItemValue = 15
+ItemSprite = ExtResource("6_w5sii")
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="Resource" id="Resource_agxml"]
+script = ExtResource("5_nn5ot")
+ItemValue = 10
+ItemSprite = ExtResource("7_f5t63")
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r72y2"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -36,7 +51,15 @@ wait_time = 60.0
 
 [node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("3_c4l5c")]
 
-[node name="ItemSpawner" parent="." unique_id=752916546 instance=ExtResource("4_w5sii")]
+[node name="ItemSpawner" parent="." unique_id=752916546 node_paths=PackedStringArray("spawnPoints") instance=ExtResource("4_w5sii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.219933, 0, 0)
+spawnPoints = [NodePath("Marker3D"), NodePath("Marker3D2")]
+ItemPool = Array[ExtResource("5_nn5ot")]([SubResource("Resource_r72y2"), SubResource("Resource_agxml")])
+
+[node name="Marker3D" type="Marker3D" parent="ItemSpawner" unique_id=1608284666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.121445, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="ItemSpawner" unique_id=1504783066]
 
 [node name="DepositZone" parent="." unique_id=302882421 instance=ExtResource("5_f5t63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.499835, 0.071332455, -5.3298216)
@@ -91,5 +114,12 @@ size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_c4l5c")
 
 [node name="CharacterBody3D" parent="." unique_id=1351616238 instance=ExtResource("9_f5t63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+horse_idle = null
+horse_turn = null
+cart_back_idle = null
+cart_back_turn = null
+cart_front_idle = null
+cart_front_turn = null
 
 [node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("10_nn5ot")]

@@ -32,9 +32,11 @@ public partial class Main : Node3D
 
         // Update our UI
         _timerLabel.Text = $"{minutes:00}:{seconds:00}";
-        scoreLabel.Text = $"Score: {GameManager.Instance.Score}";
+        int playerId = Multiplayer.GetUniqueId();
 
-    }
+        scoreLabel.Text = $"Score: {GameManager.Instance.GetScore(playerId)}";
+
+            }
 
     private void OnTimerTimeout()
     {
