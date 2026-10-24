@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Collections.Generic;
 
 public partial class ItemSpawner : Node3D
 {
@@ -11,30 +9,30 @@ public partial class ItemSpawner : Node3D
 
     private readonly RandomNumberGenerator random = new();
 
-    private readonly List<Marker3D> spawnPoints = new();
-    private readonly Dictionary<Marker3D, Node3D> occupiedPoints = new();
+    [Export] private Godot.Collections.Array<Marker3D> spawnPoints = new();
 
-    [Export] public Godot.Collections.Array<ItemData> ItemPool {get; set;} = new();
+    [Export] public Godot.Collections.Array<ItemData> ItemPool = new();
 
     public override void _Ready()
     {
         // Get our timer
         spawnTimer = GetNode<Timer>("SpawnTimer");
-
-        // Find all Marker3D children
-        foreach (Node child in GetChildren())
-        {
-            if (child is Marker3D marker)
-            {
-                spawnPoints.Add(marker);
-            }
-        }
-
+        
         // Connect timer signal
         spawnTimer.Timeout += SpawnItem;
 
         // Start spawning
         spawnTimer.Start();
+
+        for(int i = 0; i < spawnPoints.Count; i++)
+        {
+            spawnPoints[i].Position = new Vector3(
+                spawnPoints[i].Position.X,
+                0,
+                spawnPoints[i].Position.Z
+            );
+            GD.Print(spawnPoints[i].Position);
+        }
     }
 
     public void SpawnItem()
@@ -45,29 +43,10 @@ public partial class ItemSpawner : Node3D
             return;
         }
 
-        // Find all available spawn points
-        List<Marker3D> availablePoints = new();
+        // Select a random spawn point
+        int index = random.RandiRange(0, spawnPoints.Count - 1);
 
-        foreach (Marker3D point in spawnPoints)
-        {
-            if (!occupiedPoints.TryGetValue(point, out Node3D existingItem)
-                || !GodotObject.IsInstanceValid(existingItem))
-            {
-                availablePoints.Add(point);
-            }
-        }
-
-        // Stop if all spawn points are occupied
-        if (availablePoints.Count == 0)
-        {
-            GD.Print("All spawn points are occupied!");
-            return;
-        }
-
-        // Select a random available spawn point
-        int index = random.RandiRange(0, availablePoints.Count - 1);
-
-        Marker3D spawnPoint = availablePoints[index];
+        Marker3D spawnPoint = spawnPoints[index];
 
         // Create the item
         ItemData Data = GetRandomItem();
@@ -78,9 +57,6 @@ public partial class ItemSpawner : Node3D
         GetTree().CurrentScene.AddChild(itemRoot);
         // Move item to the selected spawn point
         itemRoot.GlobalPosition = spawnPoint.GlobalPosition;
-
-        // Remember which item occupies this spawn point
-        occupiedPoints[spawnPoint] = itemRoot;
 
         GD.Print($"Item spawned at {spawnPoint.Name}");
     }

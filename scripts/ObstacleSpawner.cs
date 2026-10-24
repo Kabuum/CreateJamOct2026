@@ -10,34 +10,35 @@ public partial class ObstacleSpawner : Node
 
     private readonly RandomNumberGenerator random = new();
 
-    private readonly List<Marker3D> spawnPoints = new();
+    [Export] private Godot.Collections.Array<Marker3D> spawnPoints = new();
 
-    [Export] public Godot.Collections.Array<ObstacleData> ObstaclePool {get; set;} = new();
+    [Export] public Godot.Collections.Array<ObstacleData> ObstaclePool = new();
 
     public override void _Ready()
     {
         // Get our timer
         spawnTimer = GetNode<Timer>("SpawnTimer");
 
-        // Find all Marker3D children
-        foreach (Node child in GetChildren())
-        {
-            if (child is Marker3D marker)
-            {
-                spawnPoints.Add(marker);
-            }
-        }
-
         // Connect timer signal
         spawnTimer.Timeout += SpawnObstacle;
 
         // Start spawning
         spawnTimer.Start();
+
+        for(int i = 0; i < spawnPoints.Count; i++)
+        {
+            spawnPoints[i].Position = new Vector3(
+                spawnPoints[i].Position.X,
+                0,
+                spawnPoints[i].Position.Z
+            );
+            GD.Print(spawnPoints[i].Position);
+        }
     }
 
     public void SpawnObstacle()
     {
-        if (spawnPoints.Count == 0)
+        if (itemScene == null || spawnPoints.Count == 0)
         {
             GD.PrintErr("Missing item scene or spawn points!");
             return;

@@ -12,6 +12,3 @@ ObstaclePool = Array[ExtResource("3_562o3")]([ExtResource("4_c22tc")])
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2009405652]
 wait_time = 2.0
-
-[node name="SpawnPoint 1" type="Marker3D" parent="." unique_id=722351586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.274292, -1.0968667, 0)
