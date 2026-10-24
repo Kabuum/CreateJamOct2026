@@ -51,7 +51,7 @@ var anim_time := 0.0
 @export_group("Sound Effects")
 @export var horse_sounds: Array[AudioStream]
 @export var wall_min_volume := 0.25
-@export var drift_max_volume := 0.8
+@export var drift_max_volume := 0.2
 @export var drift_ramp_up := 4.0 
 @export var drift_ramp_down := 6.0
 @export var drift_level := 0.0
