@@ -1,13 +1,12 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 using Godot;
 
 public partial class GameManager : Node
 {   
     public static GameManager Instance { get; private set; }
     public List<ItemData> Inventory = new List<ItemData>();
+    public CharacterBody3D Player1;
     public int Score = 0;
     private const string MainScene = "res://scenes/main.tscn";
     private const string DeathScene = "res://scenes/death screen.tscn";
@@ -16,6 +15,7 @@ public partial class GameManager : Node
     public override void _Ready()
     {
         Instance = this;
+        Player1 = GetTree().GetFirstNodeInGroup("Player") as CharacterBody3D;
     }
 
     public void WinGame()
@@ -42,6 +42,19 @@ public partial class GameManager : Node
         Inventory.Add(data);   
         for(int i = 0; i < Inventory.Count; i++){
             GD.Print(Inventory[i].ItemName);
+        }
+    }
+
+    public void ObstacleHit(Node3D Obsicles, ObstacleData data)
+    {
+        if (data.IsSlowness){
+        Player1.Call("apply_slow", 3f, 0.5f);
+        }
+        else
+        {
+        Vector3 dir = (Player1.GlobalPosition - Obsicles.GlobalPosition).Normalized();
+        Vector3 impulse = dir * 30;
+        Player1.Call("apply_knockback", impulse, 0.5f);
         }
     }
 

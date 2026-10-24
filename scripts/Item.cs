@@ -6,7 +6,9 @@ public partial class Item : Area3D
 	[Export] public Sprite3D ItemSprite {get; set;}
 	GameManager gameManager;
 	int ItemValue;	
-	public ItemData Data {get; set;}
+ 	public ItemData Data {get; set;}
+
+	[Export] public float spin_speed;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -28,6 +30,7 @@ public partial class Item : Area3D
 
 	public override void _Process(double delta)
 	{
+		((Node3D)GetParent()).RotateY(spin_speed * (float)delta);
 	}
 
 	public void Collected(Node3D body)

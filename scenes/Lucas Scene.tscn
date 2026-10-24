@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://blnkwlm3sysd6"]
 
-[ext_resource type="PackedScene" uid="uid://b7j7qjbwfol2m" path="res://scenes/item.tscn" id="1_nget0"]
 [ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="2_c58o5"]
+[ext_resource type="PackedScene" uid="uid://cotvrfp6gpbt5" path="res://scenes/Obstacles.tscn" id="2_wve88"]
+[ext_resource type="Script" uid="uid://ckiscel82o30i" path="res://scripts/ObstacleSpawner.cs" id="3_wve88"]
+[ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="4_1bwym"]
+[ext_resource type="Resource" uid="uid://dg4bwhtsjva6b" path="res://Data/Obstacle/Gramma.tres" id="5_a4rx2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c58o5"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -19,34 +22,14 @@ sky = SubResource("Sky_374aa")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wve88"]
 albedo_color = Color(0.57935166, 4.379898e-06, 0.375585, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_c58o5"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1bwym"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wve88"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a4rx2"]
 
 [node name="LucasScene" type="Node3D" unique_id=1788353889]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2026688411]
 environment = SubResource("Environment_wve88")
-
-[node name="Items" type="Node" parent="." unique_id=1022447652]
-
-[node name="Item" parent="Items" unique_id=436714800 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.446144, 0, 3.6663818)
-
-[node name="Item2" parent="Items" unique_id=842420473 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.443718, 0, 7.3327637)
-
-[node name="Item3" parent="Items" unique_id=1896031981 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.94843, 0, -0.5552559)
-
-[node name="Item4" parent="Items" unique_id=1790886735 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.76226, 0, -0.34342766)
-
-[node name="Item5" parent="Items" unique_id=987215687 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.5231, -22.695808, -20.106012)
-
-[node name="Item6" parent="Items" unique_id=68364336 instance=ExtResource("1_nget0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.41436, 15.348839, -27.89816)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1443879713]
 transform = Transform3D(37.450443, 0, 0, 0, 0.1423159, 0, 0, 0, 22.18525, -110.07239, -2.7554543, 0.5484009)
@@ -90,21 +73,41 @@ use_collision = true
 size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_wve88")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1607493856]
+[node name="Node3D" parent="." unique_id=506882466 instance=ExtResource("2_wve88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.067627, -1.0979474, 0.018307865)
+
+[node name="ObstacleSpawner" type="Node3D" parent="." unique_id=503212061]
+script = ExtResource("3_wve88")
+itemScene = ExtResource("2_wve88")
+ObstaclePool = Array[ExtResource("4_1bwym")]([ExtResource("5_a4rx2")])
+
+[node name="SpawnTimer" type="Timer" parent="ObstacleSpawner" unique_id=1447954055]
+wait_time = 2.0
+
+[node name="SpawnPoint 1" type="Marker3D" parent="ObstacleSpawner" unique_id=118212540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.274292, -1.0968667, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1560009844 groups=["Player"]]
 collision_layer = 4
 script = ExtResource("2_c58o5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=104003213]
-mesh = SubResource("CapsuleMesh_c58o5")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=883621171]
+mesh = SubResource("CapsuleMesh_1bwym")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=55507447]
-shape = SubResource("CapsuleShape3D_wve88")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2047985071]
+shape = SubResource("CapsuleShape3D_a4rx2")
 
-[node name="Camera_Controller" type="Node3D" parent="CharacterBody3D" unique_id=184248688]
+[node name="Camera_Controller" type="Node3D" parent="CharacterBody3D" unique_id=1944925035]
 top_level = true
 
-[node name="Camera_Target" type="Node3D" parent="CharacterBody3D/Camera_Controller" unique_id=438261374]
+[node name="Camera_Target" type="Node3D" parent="CharacterBody3D/Camera_Controller" unique_id=1294570991]
 transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 1.6810024, 3.2891595)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_Controller/Camera_Target" unique_id=93245617]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_Controller/Camera_Target" unique_id=2062426490]
 current = true
+
+[node name="WallSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=313684642]
+
+[node name="DriftSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=397185292]
+
+[node name="HorseSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=87480196]
