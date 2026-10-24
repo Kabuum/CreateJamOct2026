@@ -11,12 +11,14 @@ extends CharacterBody3D
 @export var full_steer_speed := 6.0
 
 @export_group("Grip")
-@export var grip := 4.0
+@export var grip := 3.0
 
 var steer := 0.0
 var speed := 0.0
 
 func _physics_process(delta: float) -> void:
+	
+
 	var input = Input.get_axis("ui_left","ui_right")
 	steer = lerp(steer, input, 1.0 -exp(-steer_smoothing * delta))
 	
@@ -40,3 +42,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		speed = minf(speed, maxf(velocity.dot(forward), 0))
+		
+		
+	#make cam follow player
+	$Camera_Controller.position = lerp($Camera_Controller.position, position, 1.0 - exp(-10.0 * delta))
+	$Camera_Controller.global_rotation.y = lerp_angle($Camera_Controller.global_rotation.y, global_rotation.y, 1.0 - exp(-5.0 * delta))

@@ -32,13 +32,13 @@ shadow_enabled = true
 environment = SubResource("Environment_a0q8b")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=313710472]
-transform = Transform3D(37.450443, 0, 0, 0, 0.1423159, 0, 0, 0, 22.18525, -110.07239, -2.7554543, 0.5484009)
+transform = Transform3D(37.450443, 0, 0, 0, 0.1423159, 0, 0, 0, 22.18525, -110.07239, -2.7554543, -41.72429)
 use_collision = true
-size = Vector3(8.413696, 1, 1.4530029)
+size = Vector3(8.413696, 1, 5.2638855)
 material = SubResource("StandardMaterial3D_vxq8v")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=587878495]
-transform = Transform3D(36.877678, 0.024794843, 0, -6.5247655, 0.14013933, 0, 0, 0, 22.185251, -20.136581, -2.7554543, -24.612513)
+transform = Transform3D(30.37713, 0.020424176, -12.5787525, -6.5247664, 0.14013934, 0, 20.909168, 0.014058356, 18.274582, -11.966988, -2.7554533, -31.296644)
 use_collision = true
 size = Vector3(8.413696, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_vxq8v")
@@ -82,8 +82,11 @@ mesh = SubResource("CapsuleMesh_gu8p3")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=56280333]
 shape = SubResource("CapsuleShape3D_e6clo")
 
-[node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=251061271]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9365058, 1.6928747)
+[node name="Camera_Controller" type="Node3D" parent="CharacterBody3D" unique_id=598770872]
+top_level = true
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=587375132]
-transform = Transform3D(1, 0, 0, 0, 0.9737726, 0.2275235, 0, -0.2275235, 0.9737726, 0, 0.82232094, 1.2135916)
+[node name="Camera_Target" type="Node3D" parent="CharacterBody3D/Camera_Controller" unique_id=1653714761]
+transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 1.6810024, 3.2891595)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_Controller/Camera_Target" unique_id=1294120626]
+current = true
