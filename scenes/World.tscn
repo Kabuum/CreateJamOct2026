@@ -78,8 +78,6 @@ transform = Transform3D(1.3113416e-07, 0, 2, 0, 2, 0, -1, 0, 2.6226832e-07, 5.10
 [node name="M_Environment_Gate3" parent="." unique_id=534268572 instance=ExtResource("4_1lgw5")]
 transform = Transform3D(-2.1855693e-07, 0, -2, 0, 2, 0, 1, 0, -4.3711387e-07, 5.1000004, 0, 31.7)
 
-[node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("5_1lgw5")]
-
 [node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 35)
 
@@ -139,9 +137,12 @@ texture = ExtResource("10_i4b1j")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1740722186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 stream = ExtResource("11_h1bdy")
-max_db = 1.0
+volume_db = -5.393
+max_db = 0.5
 autoplay = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=775378942]
 transform = Transform3D(113.74001, 0, 0, 0, 0.39999998, 0, 0, 0, 263.52002, 0, 8, 0)
 material = SubResource("StandardMaterial3D_gu8p3")
+
+[node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("5_1lgw5")]

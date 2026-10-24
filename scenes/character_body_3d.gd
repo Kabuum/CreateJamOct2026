@@ -21,7 +21,9 @@ extends CharacterBody3D
 @onready var cart_front_sprite: Sprite3D = $Visuals/CartFront
 @onready var cart_back_sprite: Sprite3D = $Visuals/CartBack
 @onready var stun_sprite: Sprite3D = $Visuals/Stun
+@onready var speak_sprite: Sprite3D = $Visuals/Speak
 var anim_time := 0.0
+var speak_time := 0.0
 
 
 @export_group("Speed")
@@ -51,8 +53,8 @@ var anim_time := 0.0
 
 @export_group("Sound Effects")
 @export var horse_sounds: Array[AudioStream]
-@export var wall_min_volume := 0.25
-@export var drift_max_volume := 0.2
+@export var wall_min_volume := 0.05
+@export var drift_max_volume := 0.1
 @export var drift_ramp_up := 4.0 
 @export var drift_ramp_down := 6.0
 @export var drift_level := 0.0
@@ -178,6 +180,8 @@ func play_horse(index: int ) -> void:
 	horse_sfx.stream = horse_sounds[index]
 	horse_sfx.pitch_scale = randf_range(0.80, 1.20)
 	horse_sfx.play()
+	speak_sprite.visible = true
+	speak_time = 2.0
 
 @rpc("authority", "call_local", "reliable")
 func play_wall_hit(volume_linear: float) -> void:
@@ -206,6 +210,8 @@ func _ready() -> void:
 	_setup_sprite(cart_back_sprite, 1)
 	_setup_sprite(horse_sprite, 2)
 	_setup_sprite(stun_sprite, 3)
+	_setup_sprite(speak_sprite, 4)
+	speak_sprite.visible = false
 	_update_visuals(0.0)
 	
 	if is_multiplayer_authority():
@@ -222,6 +228,11 @@ func _setup_sprite(s: Sprite3D, priority: int) -> void:
 	s.shaded = false
 func _process(delta: float) -> void:
 	_update_visuals(delta, stun_timer > 0)
+	
+	if speak_time > 0.0:
+		speak_time -= delta
+		if speak_time <= 0.0:
+			speak_sprite.visible = false
 	
 func _update_visuals(delta: float, stunned: bool = false) -> void:
 	var turning := absf(steer) > turn_treshhold
