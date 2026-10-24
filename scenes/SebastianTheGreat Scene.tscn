@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cb88dufhukwf0"]
 
 [ext_resource type="Texture2D" uid="uid://bfrmhakfdn661" path="res://Art/sr5zb7a31a3dd4aws3.png" id="1_iqk3y"]
+[ext_resource type="Script" uid="uid://bh01puy2ygxl" path="res://scripts/Main.cs" id="1_m6lm8"]
 
 [node name="SebastianTheGreatScene" type="Node3D" unique_id=333767603]
+script = ExtResource("1_m6lm8")
 
 [node name="Sr5Zb7a31a3Dd4Aws3" type="Sprite3D" parent="." unique_id=813606746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, 0)
