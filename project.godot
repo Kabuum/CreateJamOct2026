@@ -29,6 +29,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Create jam fall 2026"
 
+[global_group]
+
+spawn_points=""
+
 [input]
 
 ui_left={

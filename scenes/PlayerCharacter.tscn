@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dbcf6xsc8ilwu" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Seb_giddy_up.wav" id="13_fibtl"]
 [ext_resource type="AudioStream" uid="uid://dopdbdca5pwv8" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Sigurd_hay.wav" id="14_83pma"]
 [ext_resource type="AudioStream" uid="uid://cwbspq8kyyh67" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/unstable.wav" id="15_82yci"]
-[ext_resource type="AudioStream" uid="uid://c4iytt63y36x5" path="res://Sounds/Sound_effects/dragon-studio-car-crash-sound-376882.mp3" id="16_qsdlq"]
+[ext_resource type="AudioStream" uid="uid://bp6i8o1gjfqcs" path="res://Sounds/Sound_effects/bouncesfx.wav" id="16_fibtl"]
 [ext_resource type="AudioStream" uid="uid://dxjwgv6civ7bw" path="res://Sounds/Sound_effects/tires_squal_loop.wav" id="17_8x2di"]
 [ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="18_8x2di"]
 [ext_resource type="Texture2D" uid="uid://cn15av0xsxrbp" path="res://Art/Effects/T_UI_Speaker.png" id="18_fibtl"]
@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9
 current = true
 
 [node name="WallSFX" type="AudioStreamPlayer3D" parent="." unique_id=1336860375]
-stream = ExtResource("16_qsdlq")
+stream = ExtResource("16_fibtl")
 volume_db = -11.686
 max_db = 0.64
 
