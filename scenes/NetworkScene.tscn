@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://u0hwymxern0w"]
+
+[ext_resource type="PackedScene" uid="uid://c10she2iu2fx8" path="res://scenes/MeshLibrary/MeshLibraryExample.scn" id="1_jpm7n"]
+[ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
+[ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+
+[node name="NetworkScene" type="Node3D" unique_id=1396918261]
+script = ExtResource("1_s8mej")
+player_scene = ExtResource("2_pgt45")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1527241668]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="World" parent="." unique_id=744500456 instance=ExtResource("1_jpm7n")]
+visible = false
+
+[node name="Players" type="Node3D" parent="." unique_id=1993888536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9447336, 0, 3.69936)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=109887506]
+_spawnable_scenes = PackedStringArray("uid://c8htr0b53sgeo")
+spawn_path = NodePath("../Players")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1987223382]
+
+[node name="HostButton" type="Button" parent="Menu" unique_id=1815343281]
+offset_left = 16.0
+offset_top = 364.0
+offset_right = 104.0
+offset_bottom = 452.0
+
+[node name="IPEdit" type="LineEdit" parent="Menu" unique_id=1497086759]
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 944.0
+offset_bottom = 161.0
+
+[node name="JoinButton" type="Button" parent="Menu" unique_id=604960559]
+offset_left = 15.0
+offset_top = 171.0
+offset_right = 91.0
+offset_bottom = 247.0
+
+[node name="Label" type="Label" parent="Menu" unique_id=1762733557]
+offset_left = 28.0
+offset_top = 321.0
+offset_right = 68.0
+offset_bottom = 344.0
+text = "HOST"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=644955575]
+transform = Transform3D(29996.287, 0, 0, 0, 1, 0, 0, 0, 56419.797, 0, -3.8332987, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=633759890]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -5.0466194, 0, 35.28856)
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1028921346]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -83.32143, 0, 14.832682)
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=416831882]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -28.09813, 0, 14.832682)
+use_collision = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1360406243]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -28.09813, 0, -60.37139)
+use_collision = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=5666537]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -52.572983, 0, -37.36958)
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=718889095]
+transform = Transform3D(8.332363, 0, 0, 0, 46.285408, 0, 0, 0, 6.5315785, -96.39836, 0, -43.70411)
+use_collision = true
+size = Vector3(1, 1, 6.7403564)

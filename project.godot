@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://hp5cdgi6fm8k"
+NetworkManager="*uid://hrrtils8qnc1"
 
 [display]
 

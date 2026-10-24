@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cotvrfp6gpbt5"]
+
+[ext_resource type="Texture2D" uid="uid://bymsjw3a2mcj3" path="res://icon.svg" id="1_huts3"]
+[ext_resource type="Script" uid="uid://davt4h16eo1wb" path="res://scripts/Obstacles.cs" id="2_gljp0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f1574"]
+
+[node name="Node3D" type="Node3D" unique_id=506882466]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2000112580]
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("1_huts3")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1659853939]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("2_gljp0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=234934385]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_f1574")
