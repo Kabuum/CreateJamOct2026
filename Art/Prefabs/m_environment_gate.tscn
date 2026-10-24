@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kpxonvvtqb57"]
+
+[ext_resource type="PackedScene" uid="uid://cy06abyjw1l74" path="res://Art/Environment/M_Environment_Gate.fbx" id="1_wi0hg"]
+[ext_resource type="Texture2D" uid="uid://46ltmdndwpww" path="res://Art/Environment/T_Environment_Gate.png" id="2_rwee7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e50k2"]
+shading_mode = 0
+albedo_texture = ExtResource("2_rwee7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqjf7"]
+shading_mode = 0
+albedo_texture = ExtResource("2_rwee7")
+
+[node name="M_Environment_Gate" unique_id=1715291154 instance=ExtResource("1_wi0hg")]
+
+[node name="exit_frame" parent="." index="1" unique_id=1690323424]
+material_override = SubResource("StandardMaterial3D_e50k2")
+
+[node name="exit_gate" parent="." index="2" unique_id=1296723153]
+material_override = SubResource("StandardMaterial3D_jqjf7")
