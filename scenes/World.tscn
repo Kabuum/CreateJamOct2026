@@ -18,7 +18,6 @@ shading_mode = 0
 albedo_color = Color(0.9254902, 0.80784315, 0.3764706, 1)
 
 [node name="World" type="Node3D" unique_id=1546431973]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1990270526]
 mesh_library = ExtResource("1_32lhk")
@@ -80,7 +79,6 @@ transform = Transform3D(1.3113416e-07, 0, 2, 0, 2, 0, -1, 0, 2.6226832e-07, 5.10
 [node name="M_Environment_Gate3" parent="." unique_id=534268572 instance=ExtResource("4_1lgw5")]
 transform = Transform3D(-2.1855693e-07, 0, -2, 0, 2, 0, 1, 0, -4.3711387e-07, 5.1000004, 0, 31.7)
 
-<<<<<<< Updated upstream
 [node name="ExitZone" parent="." unique_id=1433063705 instance=ExtResource("5_7c4bj")]
 transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 3.8, -21.40567, 1.8963017, 0)
 
@@ -92,19 +90,15 @@ transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.018255, 1.861417, 32.1415
 
 [node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 35)
-=======
-[node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082 groups=["spawn_points"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1, 35)
->>>>>>> Stashed changes
 
-[node name="spawnpoint 2" type="Node3D" parent="." unique_id=286372191 groups=["spawn_points"]]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 22, 1, -30)
+[node name="spawnpoint 2" type="Node3D" parent="." unique_id=1741681869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -28)
 
-[node name="spawnpoint 3" type="Node3D" parent="." unique_id=124399160 groups=["spawn_points"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 1, -22)
+[node name="spawnpoint 3" type="Node3D" parent="." unique_id=799983081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -23)
 
-[node name="spawnpoint 4" type="Node3D" parent="." unique_id=1545475614 groups=["spawn_points"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 1, 25.3)
+[node name="spawnpoint 4" type="Node3D" parent="." unique_id=924521627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1143971691]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.9, 5, 16)
