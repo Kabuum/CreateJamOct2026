@@ -12,4 +12,12 @@ public partial class Item : Area3D
 	public override void _Process(double delta)
 	{
 	}
+
+	public void Collected(Node3D body)
+	{
+		GD.Print("Entering");
+		QueueFree();
+		
+
+	}
 }
