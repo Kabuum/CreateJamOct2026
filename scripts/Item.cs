@@ -3,15 +3,19 @@ using System;
 
 public partial class Item : Area3D
 {
+	GameManager gameManager;
+	int value;	
+	Sprite3D sprite;
+	string name;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
+	{	
+		gameManager = GetTree().Root.GetNode<GameManager>("GameManager");
 		Monitoring = true;
     	Monitorable = true;
     	BodyEntered += Collected;
 
-    	GD.Print("Coin layer: ", CollisionLayer);
-    	GD.Print("Coin mask: ", CollisionMask);
     	GD.Print("Monitoring: ", Monitoring);
     	GD.Print("Collision children: ", GetChildren().Count);
 	}
@@ -23,7 +27,10 @@ public partial class Item : Area3D
 
 	public void Collected(Node3D body)
 	{
+
 		GD.Print("Entered by: ", body.Name);
+		ItemData data = new ItemData(value, sprite, Name);
+		gameManager.ItemCollected(data);
 		GetParent().QueueFree();
 		
 
