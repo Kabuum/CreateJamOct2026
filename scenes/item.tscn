@@ -12,12 +12,10 @@ billboard = 1
 texture = ExtResource("1_s8enn")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=5212485]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("2_6muww")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=321328218]
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
 shape = SubResource("CylinderShape3D_f1574")
-
-[connection signal="body_entered" from="Area3D" to="." method="Collected"]
