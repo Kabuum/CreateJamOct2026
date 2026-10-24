@@ -44,9 +44,9 @@ size = Vector3(8.413696, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_vxq8v")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=2074247790]
-transform = Transform3D(0.106735624, 0, 0, 0, 24.788519, 0, 0, 0, 1.4575775, -15.643578, -2.7554543, -2.0225782)
+transform = Transform3D(0.5512922, 0, 0, 0, 24.788519, 0, 0, 0, 1.4575775, -3.1660671, -2.7554543, -33.11414)
 use_collision = true
-size = Vector3(29.647278, 1, 1.4530029)
+size = Vector3(93.92032, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_vxq8v")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1993351244]
@@ -73,7 +73,7 @@ use_collision = true
 size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_vxq8v")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=496598066]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=496598066 groups=["Player"]]
 script = ExtResource("1_e6clo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1095218606]
