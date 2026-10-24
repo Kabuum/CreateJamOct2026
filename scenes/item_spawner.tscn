@@ -5,23 +5,67 @@
 [ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="3_jqlno"]
 [ext_resource type="Texture2D" uid="uid://dkskqcmxockmx" path="res://Art/Items/Energy drink.png" id="4_f0s60"]
 [ext_resource type="Texture2D" uid="uid://miwkgsoxegag" path="res://Art/Items/Pickles.png" id="5_ld3wv"]
+[ext_resource type="Texture2D" uid="uid://betwjvo81e4kp" path="res://Art/Items/Jam or jelly.png" id="6_ld3wv"]
+[ext_resource type="Texture2D" uid="uid://cnss3yu4wht8t" path="res://Art/Items/PS5.png" id="7_80cka"]
+[ext_resource type="Texture2D" uid="uid://htomcan3e7as" path="res://Art/Items/Beer.png" id="8_j8njg"]
+[ext_resource type="Texture2D" uid="uid://brwbr8b7wk40p" path="res://Art/Items/Air Fryer.png" id="9_4u5rl"]
 
-[sub_resource type="Resource" id="Resource_r72y2"]
+[sub_resource type="Resource" id="Resource_ecbsi"]
 script = ExtResource("3_jqlno")
-ItemValue = 15
+ItemValue = 25
 ItemSprite = ExtResource("4_f0s60")
+ItemName = "Monster Energy"
 metadata/_custom_type_script = "uid://bsd0xmtn52g40"
 
-[sub_resource type="Resource" id="Resource_agxml"]
+[sub_resource type="Resource" id="Resource_mvqr3"]
+script = ExtResource("3_jqlno")
+ItemValue = 15
+ItemSprite = ExtResource("5_ld3wv")
+ItemName = "Pickles"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="Resource" id="Resource_jrkat"]
 script = ExtResource("3_jqlno")
 ItemValue = 10
-ItemSprite = ExtResource("5_ld3wv")
+ItemSprite = ExtResource("6_ld3wv")
+ItemName = "Jelly"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="Resource" id="Resource_t25ou"]
+script = ExtResource("3_jqlno")
+ItemValue = 100
+ItemSprite = ExtResource("7_80cka")
+ItemName = "PS5"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="Resource" id="Resource_mev7k"]
+script = ExtResource("3_jqlno")
+ItemValue = 5
+ItemSprite = ExtResource("8_j8njg")
+ItemName = "Beer"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="Resource" id="Resource_bsk8a"]
+script = ExtResource("3_jqlno")
+ItemValue = 50
+ItemSprite = ExtResource("9_4u5rl")
+ItemName = "Air Fryer"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i45fb"]
+load_path = "res://.godot/imported/PS5 Brbr.png-6b82d2bdf4c7017bf810e0e9cfb2aa56.ctex"
+
+[sub_resource type="Resource" id="Resource_2jct4"]
+script = ExtResource("3_jqlno")
+ItemValue = 150
+ItemSprite = SubResource("CompressedTexture2D_i45fb")
+ItemName = "PS5 Pro"
 metadata/_custom_type_script = "uid://bsd0xmtn52g40"
 
 [node name="ItemSpawner" type="Node3D" unique_id=752916546]
 script = ExtResource("1_n0x5h")
 itemScene = ExtResource("2_2vh2f")
-ItemPool = Array[ExtResource("3_jqlno")]([SubResource("Resource_r72y2"), SubResource("Resource_agxml")])
+ItemPool = Array[ExtResource("3_jqlno")]([SubResource("Resource_ecbsi"), SubResource("Resource_mvqr3"), SubResource("Resource_jrkat"), SubResource("Resource_t25ou"), SubResource("Resource_mev7k"), SubResource("Resource_bsk8a"), SubResource("Resource_2jct4")])
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1785552942]
 wait_time = 5.0

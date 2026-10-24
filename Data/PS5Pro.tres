@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bvswf1u0tlmr7"]
+
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_4owyp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i45fb"]
+load_path = "res://.godot/imported/PS5 Brbr.png-6b82d2bdf4c7017bf810e0e9cfb2aa56.ctex"
+
+[resource]
+script = ExtResource("1_4owyp")
+ItemValue = 150
+ItemSprite = SubResource("CompressedTexture2D_i45fb")
+ItemName = "PS5 Pro"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"
