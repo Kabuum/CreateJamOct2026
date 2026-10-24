@@ -18,6 +18,7 @@ properties/2/spawn = true
 properties/2/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
+collision_layer = 4
 script = ExtResource("1_cij07")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1454650636]
@@ -41,5 +42,5 @@ current = true
 
 [node name="HorseSFX" type="AudioStreamPlayer3D" parent="." unique_id=1727941882]
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1439030162]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1439030162 groups=["Player"]]
 replication_config = SubResource("SceneReplicationConfig_cij07")
