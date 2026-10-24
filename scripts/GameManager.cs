@@ -41,7 +41,7 @@ public partial class GameManager : Node
     {
         Inventory.Add(data);   
         for(int i = 0; i < Inventory.Count; i++){
-            GD.Print(Inventory[i].Name);
+            GD.Print(Inventory[i].ItemName);
         }
     }
 

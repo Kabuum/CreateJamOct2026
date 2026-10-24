@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cig2jlfadavvh"]
+
+[ext_resource type="Texture2D" uid="uid://dkskqcmxockmx" path="res://Art/Items/Energy drink.png" id="1_5rwcd"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_e1m6n"]
+
+[resource]
+script = ExtResource("1_e1m6n")
+ItemValue = 25
+ItemSprite = ExtResource("1_5rwcd")
+ItemName = "Monster Energy"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"

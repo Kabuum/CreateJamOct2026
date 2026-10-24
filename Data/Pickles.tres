@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dvtyo43sm5hdr"]
+
+[ext_resource type="Texture2D" uid="uid://miwkgsoxegag" path="res://Art/Items/Pickles.png" id="1_6ibcx"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="1_64r06"]
+
+[resource]
+script = ExtResource("1_64r06")
+ItemValue = 15
+ItemSprite = ExtResource("1_6ibcx")
+ItemName = "Pickles"
+metadata/_custom_type_script = "uid://bsd0xmtn52g40"

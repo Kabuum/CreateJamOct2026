@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://dsp3umg0dgdri" path="res://scenes/character_body_3d.gd" id="3_iaqks"]
 [ext_resource type="Script" uid="uid://crgaeckpjnugn" path="res://scripts/ItemSpawner.cs" id="3_r72y2"]
 [ext_resource type="PackedScene" uid="uid://b7j7qjbwfol2m" path="res://scenes/item.tscn" id="4_agxml"]
+[ext_resource type="Script" uid="uid://bsd0xmtn52g40" path="res://scripts/ItemData.cs" id="5_nn5ot"]
+[ext_resource type="Resource" uid="uid://b0stea8imlv28" path="res://Data/Jelly.tres" id="6_dxckc"]
+[ext_resource type="Resource" uid="uid://cig2jlfadavvh" path="res://Data/Monster.tres" id="7_43e0y"]
+[ext_resource type="Resource" uid="uid://dvtyo43sm5hdr" path="res://Data/Pickles.tres" id="8_qxr2p"]
+[ext_resource type="Resource" uid="uid://nwbhl4n33irb" path="res://Data/PS5.tres" id="9_7kx4b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r72y2"]
 sky_top_color = Color(0.48315358, 0.4610139, 0.4545694, 1)
@@ -49,6 +54,7 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.868053, -1.8063753, 0)
 script = ExtResource("3_r72y2")
 itemScene = ExtResource("4_agxml")
+ItemPool = Array[ExtResource("5_nn5ot")]([ExtResource("6_dxckc"), ExtResource("7_43e0y"), ExtResource("8_qxr2p"), ExtResource("9_7kx4b")])
 
 [node name="SpawnTimer" type="Timer" parent="ItemSpawner" unique_id=60790621]
 wait_time = 5.0
@@ -109,7 +115,7 @@ size = Vector3(29.647278, 1, 1.4530029)
 material = SubResource("StandardMaterial3D_c4l5c")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1010647090]
-collision_layer = 5
+collision_layer = 4
 script = ExtResource("3_iaqks")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1265247349]

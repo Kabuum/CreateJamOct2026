@@ -3,10 +3,10 @@ using System;
 
 public partial class Item : Area3D
 {
+	[Export] public Sprite3D ItemSprite {get; set;}
 	GameManager gameManager;
-	int value;	
-	Sprite3D sprite;
-	string name;
+	int ItemValue;	
+	public ItemData Data {get; set;}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,7 +20,12 @@ public partial class Item : Area3D
     	GD.Print("Collision children: ", GetChildren().Count);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public void FindData(ItemData data)
+	{
+		Data = data;
+		GetNode<Sprite3D>("../Sprite3D").Texture = data.ItemSprite;
+	}
+
 	public override void _Process(double delta)
 	{
 	}
@@ -29,8 +34,7 @@ public partial class Item : Area3D
 	{
 
 		GD.Print("Entered by: ", body.Name);
-		ItemData data = new ItemData(value, sprite, Name);
-		gameManager.ItemCollected(data);
+		gameManager.ItemCollected(Data);
 		GetParent().QueueFree();
 		
 
