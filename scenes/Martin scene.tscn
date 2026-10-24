@@ -90,9 +90,3 @@ transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_Controller/Camera_Target" unique_id=1294120626]
 current = true
-
-[node name="WallSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=1378780280]
-
-[node name="DriftSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=1697821080]
-
-[node name="HorseSFX" type="AudioStreamPlayer3D" parent="CharacterBody3D" unique_id=871031765]
