@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bmgyijuwxu020" path="res://Art/Characters/The Rat.png" id="3_d1c63"]
 [ext_resource type="PackedScene" uid="uid://kpxonvvtqb57" path="res://Art/Prefabs/m_environment_gate.tscn" id="4_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="5_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://cesjvlxdlki41" path="res://scenes/Exit_Zone.tscn" id="5_7c4bj"]
 [ext_resource type="Texture2D" uid="uid://57oh2vk45yii" path="res://Art/Environment/Posters/90% off.png" id="6_pdh0q"]
 [ext_resource type="Texture2D" uid="uid://1m7qm1s3cniq" path="res://Art/Environment/Posters/buybuybuy.png" id="7_h1bdy"]
 [ext_resource type="Texture2D" uid="uid://cnig26v760nb0" path="res://Art/Environment/Posters/Shit yourself.png" id="8_7c4bj"]
@@ -77,6 +78,15 @@ transform = Transform3D(1.3113416e-07, 0, 2, 0, 2, 0, -1, 0, 2.6226832e-07, 5.10
 
 [node name="M_Environment_Gate3" parent="." unique_id=534268572 instance=ExtResource("4_1lgw5")]
 transform = Transform3D(-2.1855693e-07, 0, -2, 0, 2, 0, 1, 0, -4.3711387e-07, 5.1000004, 0, 31.7)
+
+[node name="ExitZone" parent="." unique_id=1433063705 instance=ExtResource("5_7c4bj")]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 3.8, -21.40567, 1.8963017, 0)
+
+[node name="ExitZone2" parent="." unique_id=2003324865 instance=ExtResource("5_7c4bj")]
+transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.1830683, 1.8906436, -29.281073)
+
+[node name="ExitZone3" parent="." unique_id=1647617298 instance=ExtResource("5_7c4bj")]
+transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.018255, 1.861417, 32.141533)
 
 [node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 35)

@@ -393,6 +393,7 @@ public partial class RoundManager : Node
         // Reload NetworkScene, including its existing Host/Join menu
         GetTree().ReloadCurrentScene();
     }
+
 	[Rpc(
 		MultiplayerApi.RpcMode.Authority,
 		CallLocal = true,
@@ -400,6 +401,7 @@ public partial class RoundManager : Node
 	)]
 	private void OpenGates()
 	{
+		// Open all gates
 		foreach (Node node in GetTree().GetNodesInGroup("TimedGate"))
 		{
 			Node3D gate = node.GetNodeOrNull<Node3D>("exit_gate");
@@ -409,8 +411,18 @@ public partial class RoundManager : Node
 				gate.Hide();
 			}
 		}
+		GD.Print($"Found {GetTree().GetNodesInGroup("TimedExit").Count} exit zones!");
 
-		GD.Print("All gates opened!");
+		// Activate all exit zones
+		foreach (Node node in GetTree().GetNodesInGroup("TimedExit"))
+		{
+			if (node is ExitZone exitZone)
+			{
+				exitZone.OpenExit();
+			}
+		}
+
+		GD.Print("All gates and exits opened!");
 	}
 
 	public override void _PhysicsProcess(double delta)
