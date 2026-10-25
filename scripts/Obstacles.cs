@@ -65,7 +65,9 @@ public partial class Obstacles : Area3D
 			hit = true;
 			RemoveAfterDelay(3f);
 		}
-		pushDirection =	(GlobalPosition - body.GlobalPosition).Normalized().Normalized();
+		pushDirection =	(GlobalPosition - body.GlobalPosition).Normalized();
+		pushDirection.Y = Mathf.Max(pushDirection.Y, 0.3f);
+		pushDirection.Normalized();
 		gameManager.ObstacleHit(body, this, Data);;
 	}
 

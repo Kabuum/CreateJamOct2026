@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Drawing;
 
 public partial class ObstacleSpawner : Node
 {
@@ -65,6 +66,8 @@ public partial class ObstacleSpawner : Node
             }
         }
 
+        GD.Print(availablePoints.Count);
+
         // Stop if all spawn points are occupied
         if (availablePoints.Count == 0)
         {
@@ -84,6 +87,8 @@ public partial class ObstacleSpawner : Node
         // Add Obstacle to the scene
         Obstacle.FindData(Data);
         GetTree().CurrentScene.AddChild(ObstacleRoot);
+
+        occupiedPoints[spawnPoint] = Obstacle;
         // Move Obstacle to the selected spawn point
         ObstacleRoot.GlobalPosition = spawnPoint.GlobalPosition;
 
