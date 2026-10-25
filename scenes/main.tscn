@@ -15,7 +15,6 @@ albedo_texture = ExtResource("5_tbgi4")
 
 [node name="World" parent="." unique_id=1546431973 instance=ExtResource("2_tefeu")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
-visible = false
 
 [node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("3_jyhfs")]
 
