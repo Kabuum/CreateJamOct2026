@@ -14,6 +14,7 @@ public partial class Obstacles : Area3D
 	[Export] public float PushSpeed = 8f;
 	private Vector3 pushDirection;
 	[Export] private AudioStreamPlayer3D AudioManager;
+	[Export] private AudioStreamPlayer3D AudioManagerLouad;
 	[Export] private AudioStream[] Sound;
 
 	// Called when the node enters the scene tree for the first time.
@@ -65,7 +66,23 @@ public partial class Obstacles : Area3D
 			sprite.Texture = GD.Load<Texture2D>("res://Art/Effects/Explosion.png");
 			RemoveAfterDelay(0.8f);
 		}
-		else
+		else if(Data.ObstacleName == "Gramma")
+		{
+			int itemIndex = GD.RandRange(2,4);
+			AudioManagerLouad.Stream = Sound[itemIndex];
+			if(itemIndex == 2){
+				AudioManagerLouad.Seek(0.3f);
+			}
+			else
+			{
+				AudioManagerLouad.Seek(0.5f);
+			}
+			AudioManagerLouad.Play();
+			AudioManager.Stream = Sound[0];
+			AudioManager.Play();
+			hit = true;
+			RemoveAfterDelay(3f);
+		} else
 		{
 			AudioManager.Stream = Sound[0];
 			AudioManager.Play();
