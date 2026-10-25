@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_8a7ea"]
 [ext_resource type="Texture2D" uid="uid://fbotarakydvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Unicorn.png" id="5_nk1uj"]
 [ext_resource type="Texture2D" uid="uid://citvuuqr16tvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Brown.png" id="6_bwlwt"]
-[ext_resource type="Texture2D" uid="uid://ja7ergdsdu0y" path="res://Art/UI/Tutorial.png" id="6_kijcd"]
+[ext_resource type="Texture2D" uid="uid://dlkjtwr07tatt" path="res://Art/UI/controls.png" id="9_bwlwt"]
 [ext_resource type="Texture2D" uid="uid://bs8yeoiujoq55" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Zebra.png" id="9_wl8sc"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
@@ -93,16 +93,15 @@ text = "JOIN GAME"
 [node name="Label3" type="Label" parent="Menu/ConnectPanel/JoinButton" unique_id=1310830073]
 process_priority = 3
 layout_mode = 0
-offset_left = -575.0969
-offset_top = -154.70445
-offset_right = -111.096924
-offset_bottom = -55.704453
-theme_override_colors/font_color = Color(0.84705883, 0.3647059, 0.20392157, 1)
+offset_left = -621.33997
+offset_top = -154.70447
+offset_right = -135.33997
+offset_bottom = -55.704468
+theme_override_colors/font_color = Color(0.078431375, 0.27450982, 0.30980393, 1)
 theme_override_colors/font_shadow_color = Color(0.3518119, 0.24613696, 0.13033083, 0)
 theme_override_fonts/font = ExtResource("3_iucop")
 theme_override_font_sizes/font_size = 64
-text = "HORSE AROUND:
-BLACK FRIDAY RUSH"
+text = "BLACK FRIDAY DERBY"
 
 [node name="IPLabel" type="Label" parent="Menu/ConnectPanel" unique_id=1294056110]
 layout_mode = 0
@@ -124,7 +123,7 @@ offset_right = -119.0
 offset_bottom = -73.0
 scale = Vector2(38.481247, 22.13003)
 mouse_filter = 2
-color = Color(0.25490198, 0.6745098, 0.5176471, 1)
+color = Color(0.32941177, 0.63529414, 0.77254903, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=112091371]
 position = Vector2(297, 330.00003)
@@ -191,12 +190,12 @@ offset_right = -119.0
 offset_bottom = -73.0
 scale = Vector2(38.481247, 22.13003)
 mouse_filter = 2
-color = Color(0.25490198, 0.6745098, 0.5176471, 1)
+color = Color(0.32941177, 0.63529414, 0.77254903, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Menu/Lobby" unique_id=657956273]
-position = Vector2(330, 333)
+position = Vector2(313, 330.99997)
 scale = Vector2(0.53908074, 0.53908074)
-texture = ExtResource("6_kijcd")
+texture = ExtResource("9_bwlwt")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Menu/Lobby" unique_id=467188147]
 position = Vector2(831, 554)
@@ -205,10 +204,10 @@ texture = ExtResource("9_wl8sc")
 
 [node name="IPLabel" type="Label" parent="Menu/Lobby" unique_id=854538065]
 layout_mode = 0
-offset_left = 610.0
-offset_top = 107.0
-offset_right = 821.0
-offset_bottom = 131.0
+offset_left = 888.0
+offset_top = 21.0
+offset_right = 1099.0
+offset_bottom = 45.0
 theme_override_fonts/font = ExtResource("3_iucop")
 theme_override_font_sizes/font_size = 32
 text = "your code is: "
