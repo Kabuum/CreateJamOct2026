@@ -88,17 +88,17 @@ transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.1830683, 1.8906436, -29.2
 [node name="ExitZone3" parent="." unique_id=1647617298 groups=["TimedExit"] instance=ExtResource("5_7c4bj")]
 transform = Transform3D(3.8, 0, 0, 0, 4, 0, 0, 0, 1, 5.018255, 1.861417, 32.141533)
 
-[node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 35)
+[node name="spawnpoint 1" type="Node3D" parent="." unique_id=1948988082 groups=["spawn_points"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1, 35)
 
-[node name="spawnpoint 2" type="Node3D" parent="." unique_id=1741681869]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -28)
+[node name="spawnpoint 2" type="Node3D" parent="." unique_id=495792006 groups=["spawn_points"]]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 22, 1, -29)
 
-[node name="spawnpoint 3" type="Node3D" parent="." unique_id=799983081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -23)
+[node name="spawnpoint 3" type="Node3D" parent="." unique_id=103469177 groups=["spawn_points"]]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14.000001, 1, -24)
 
-[node name="spawnpoint 4" type="Node3D" parent="." unique_id=924521627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25)
+[node name="spawnpoint 4" type="Node3D" parent="." unique_id=728746714 groups=["spawn_points"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, 27)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1143971691]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.9, 5, 16)
