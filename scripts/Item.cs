@@ -15,11 +15,11 @@ public partial class Item : Area3D
 	{	
 		gameManager = GetTree().Root.GetNode<GameManager>("GameManager");
 		Monitoring = true;
-    	Monitorable = true;
-    	BodyEntered += Collected;
+		Monitorable = true;
+		BodyEntered += Collected;
 
-    	GD.Print("Monitoring: ", Monitoring);
-    	GD.Print("Collision children: ", GetChildren().Count);
+		GD.Print("Monitoring: ", Monitoring);
+		GD.Print("Collision children: ", GetChildren().Count);
 	}
 
 	public void FindData(ItemData data)
@@ -58,7 +58,7 @@ public partial class Item : Area3D
 		GD.Print($"Player {playerId} collected {Data.ItemName}");
 
 		gameManager.ItemCollected(playerId, Data);
-
+		player.Rpc("play_item_pickup");
 		GetParent().QueueFree();
 	}
 }

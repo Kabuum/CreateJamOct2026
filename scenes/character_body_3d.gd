@@ -62,6 +62,8 @@ var speak_time := 0.0
 @onready var wall_sfx : AudioStreamPlayer3D  = $WallSFX
 @onready var drift_sfx : AudioStreamPlayer3D  = $DriftSFX
 @onready var horse_sfx : AudioStreamPlayer3D  = $HorseSFX
+@onready var item_sfx : AudioStreamPlayer3D  = $ItemPickupSFX
+@onready var cashier_sfx : AudioStreamPlayer3D  = $CashierSFX
 
 @export var min_steer_strength := 0.35
 
@@ -188,7 +190,15 @@ func play_wall_hit(volume_linear: float) -> void:
 	wall_sfx.volume_db = linear_to_db(volume_linear)
 	wall_sfx.pitch_scale = randf_range(0.9, 1.1)
 	wall_sfx.play()
+
+@rpc("any_peer", "call_local", "reliable")
+func play_item_pickup() -> void:
+	item_sfx.play()
 	
+@rpc("any_peer", "call_local", "reliable")
+func play_cashier() -> void:
+	cashier_sfx.play()
+
 
 func _update_drift_sound() -> void:
 	if drift_level > 0.05:
