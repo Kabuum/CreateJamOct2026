@@ -123,3 +123,15 @@ material = SubResource("StandardMaterial3D_vxq8v")
 [node name="Hordebox7" type="CSGBox3D" parent="Horde" unique_id=488806335]
 transform = Transform3D(97.1, 0, 0, 0, 1.5751835e-06, -5.8729963, 0, 12.011999, 7.7015045e-07, 91, 3, 36.07477)
 material = SubResource("StandardMaterial3D_vxq8v")
+
+[node name="Hordebox8" type="CSGBox3D" parent="Horde" unique_id=59045889]
+transform = Transform3D(97.1, 0, 0, 0, 1.5751835e-06, -5.8729963, 0, 12.011999, 7.7015045e-07, 91, 3, 47.577663)
+material = SubResource("StandardMaterial3D_vxq8v")
+
+[node name="Hordebox9" type="CSGBox3D" parent="Horde" unique_id=1263218879]
+transform = Transform3D(97.1, 0, 0, 0, 1.5751835e-06, -5.8729963, 0, 12.011999, 7.7015045e-07, 91, 3, 59.435703)
+material = SubResource("StandardMaterial3D_vxq8v")
+
+[node name="Hordebox10" type="CSGBox3D" parent="Horde" unique_id=216776156]
+transform = Transform3D(97.1, 0, 0, 0, 1.5751835e-06, -5.8729963, 0, 12.011999, 7.7015045e-07, 91, 3, -47.725746)
+material = SubResource("StandardMaterial3D_vxq8v")

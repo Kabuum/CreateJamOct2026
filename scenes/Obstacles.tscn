@@ -3,13 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://bymsjw3a2mcj3" path="res://icon.svg" id="1_huts3"]
 [ext_resource type="AudioStream" uid="uid://bg0d40l8842jf" path="res://Sounds/Sound_effects/freesound_community-medium-explosion-40472.mp3" id="2_fgftc"]
 [ext_resource type="Script" uid="uid://davt4h16eo1wb" path="res://scripts/Obstacles.cs" id="2_gljp0"]
-[ext_resource type="AudioStream" uid="uid://dqkoi7pny22ml" path="res://Sounds/Sound_effects/HorseCartCrash.wav" id="2_y24d2"]
+[ext_resource type="AudioStream" uid="uid://cxbcphp580836" path="res://Sounds/Sound_effects/HorseCartCrash.wav" id="2_y24d2"]
+[ext_resource type="AudioStream" uid="uid://dtlxrwclbsd5c" path="res://Sounds/Sound_effects/Oh_My.wav" id="4_3gbrd"]
+[ext_resource type="AudioStream" uid="uid://btlc6nba02tnr" path="res://Sounds/Sound_effects/old_woman_uhhhh.wav" id="5_b7hyt"]
+[ext_resource type="AudioStream" uid="uid://bcua1m3kya3y" path="res://Sounds/Sound_effects/old_women_off.wav" id="6_8r67p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1574"]
 
 [node name="Node3D" type="Node3D" unique_id=506882466]
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1659853939 node_paths=PackedStringArray("AudioManager")]
+[node name="Area3D" type="Area3D" parent="." unique_id=1659853939 node_paths=PackedStringArray("AudioManager", "AudioManagerLouad")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2897945, 0)
 collision_layer = 16
 collision_mask = 4
@@ -17,7 +20,8 @@ script = ExtResource("2_gljp0")
 spin_speed = 20
 PushSpeed = 80.0
 AudioManager = NodePath("../AudioManager")
-Sound = Array[AudioStream]([ExtResource("2_y24d2"), ExtResource("2_fgftc")])
+AudioManagerLouad = NodePath("../Ganny")
+Sound = Array[AudioStream]([ExtResource("2_y24d2"), ExtResource("2_fgftc"), ExtResource("4_3gbrd"), ExtResource("5_b7hyt"), ExtResource("6_8r67p")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=234934385]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
@@ -32,4 +36,8 @@ texture = ExtResource("1_huts3")
 [node name="AudioManager" type="AudioStreamPlayer3D" parent="." unique_id=1879050272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2897945, 0)
 stream = ExtResource("2_fgftc")
-volume_db = -3.975
+volume_db = -3.0
+
+[node name="Ganny" type="AudioStreamPlayer3D" parent="." unique_id=117532763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2897945, 0)
+volume_db = 22.857
