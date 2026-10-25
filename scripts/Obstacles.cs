@@ -60,14 +60,14 @@ public partial class Obstacles : Area3D
 
 		if(Data.ObstacleName == "Bomb")
 		{
-			AudioManager.Stream = Sound[0];
+			AudioManager.Stream = Sound[1];
 			AudioManager.Play();
 			sprite.Texture = GD.Load<Texture2D>("res://Art/Effects/Explosion.png");
 			RemoveAfterDelay(0.8f);
 		}
 		else
 		{
-			AudioManager.Stream = Sound[1];
+			AudioManager.Stream = Sound[0];
 			AudioManager.Play();
 			hit = true;
 			RemoveAfterDelay(3f);
