@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d1weaai8jhacw" path="res://scenes/obstacle_spawner.tscn" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://by8qomm2ms3lx" path="res://Art/Effects/Horde.png" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dd24r6olpjexe" path="res://scenes/horde.gd" id="5_tefeu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxq8v"]
 shading_mode = 0
@@ -91,6 +92,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.746094, 0.95430017, 0.2893
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7460938, 0.95430017, 0.2893448)
 
 [node name="Horde" type="Node3D" parent="." unique_id=1117103701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("5_tefeu")
+direction = Vector3(-1, 0, 0)
 
 [node name="Hordebox" type="CSGBox3D" parent="Horde" unique_id=1706993692]
 transform = Transform3D(97.1, 0, 0, 0, 1.5751835e-06, -5.8729963, 0, 12.011999, 7.7015045e-07, 91, 3, 0)
