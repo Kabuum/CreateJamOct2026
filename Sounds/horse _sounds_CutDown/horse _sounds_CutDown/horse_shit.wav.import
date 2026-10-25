@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxjgawxeedqdf"
+path="res://.godot/imported/horse_shit.wav-a113956d71bcd98cac5e6a4d5a549889.sample"
+
+[deps]
+
+source_file="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/horse_shit.wav"
+dest_files=["res://.godot/imported/horse_shit.wav-a113956d71bcd98cac5e6a4d5a549889.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
