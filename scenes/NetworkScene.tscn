@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+[ext_resource type="Script" uid="uid://drkmpj2lx2lx5" path="res://scripts/IPDisplay.gd" id="3_bwlwt"]
 [ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="3_iucop"]
 [ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
 [ext_resource type="Texture2D" uid="uid://bvgecsdb8ssdv" path="res://Art/UI/crowd.png" id="4_lc7cy"]
@@ -28,6 +29,7 @@ _spawnable_scenes = PackedStringArray("uid://c8htr0b53sgeo")
 spawn_path = NodePath("../Players")
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1987223382]
+script = ExtResource("3_bwlwt")
 
 [node name="ConnectPanel" type="Control" parent="Menu" unique_id=1450148808]
 layout_mode = 3
@@ -101,6 +103,16 @@ theme_override_fonts/font = ExtResource("3_iucop")
 theme_override_font_sizes/font_size = 64
 text = "HORSE AROUND:
 BLACK FRIDAY RUSH"
+
+[node name="IPLabel" type="Label" parent="Menu/ConnectPanel" unique_id=1294056110]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 319.0
+offset_right = 802.0
+offset_bottom = 343.0
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 32
+text = "your code is: "
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ConnectPanel" unique_id=1363998243]
 process_priority = -15
@@ -190,6 +202,16 @@ texture = ExtResource("6_kijcd")
 position = Vector2(831, 554)
 scale = Vector2(0.093933105, 0.093933105)
 texture = ExtResource("9_wl8sc")
+
+[node name="IPLabel" type="Label" parent="Menu/Lobby" unique_id=854538065]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 107.0
+offset_right = 821.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 32
+text = "your code is: "
 
 [node name="RoundManager" type="Node" parent="." unique_id=234566709]
 script = ExtResource("4_tktvb")
