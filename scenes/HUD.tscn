@@ -1,25 +1,46 @@
 [gd_scene format=3 uid="uid://dmfq610m1aoq4"]
 
+[ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="1_qpvh6"]
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1509272599]
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1981740522]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1:00
-"
-metadata/_edit_use_anchors_ = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 62.0
+offset_right = 300.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("1_qpvh6")
+theme_override_font_sizes/font_size = 32
+text = "01:00"
+horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=329463504]
-offset_left = 525.0
-offset_right = 586.0
-offset_bottom = 23.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("1_qpvh6")
+theme_override_font_sizes/font_size = 42
 text = "Score: 0"
+horizontal_alignment = 1
 
 [node name="GatesLabel" type="Label" parent="." unique_id=1581490519]
-offset_left = 456.0
-offset_top = 35.0
-offset_right = 671.0
-offset_bottom = 58.0
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 111.0
+offset_right = 300.0
+offset_bottom = 155.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "The gates are now open"
+theme_override_fonts/font = ExtResource("1_qpvh6")
+theme_override_font_sizes/font_size = 27
+text = "The gates are now open!"
 horizontal_alignment = 1
