@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://drkmpj2lx2lx5" path="res://scripts/IPDisplay.gd" id="3_bwlwt"]
 [ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="3_iucop"]
 [ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
-[ext_resource type="Texture2D" uid="uid://bvgecsdb8ssdv" path="res://Art/UI/crowd.png" id="4_lc7cy"]
 [ext_resource type="Script" uid="uid://du3p182vc5w2y" path="res://scripts/RoundManager.cs" id="4_tktvb"]
 [ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_8a7ea"]
+[ext_resource type="Texture2D" uid="uid://c0d4hpik1ybhp" path="res://Art/UI/intro page.png" id="5_bwlwt"]
 [ext_resource type="Texture2D" uid="uid://fbotarakydvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Unicorn.png" id="5_nk1uj"]
 [ext_resource type="Texture2D" uid="uid://citvuuqr16tvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Brown.png" id="6_bwlwt"]
 [ext_resource type="Texture2D" uid="uid://dlkjtwr07tatt" path="res://Art/UI/controls.png" id="9_bwlwt"]
@@ -126,9 +126,9 @@ mouse_filter = 2
 color = Color(0.32941177, 0.63529414, 0.77254903, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=112091371]
-position = Vector2(297, 330.00003)
+position = Vector2(280, 520)
 scale = Vector2(0.47026744, 0.47026744)
-texture = ExtResource("4_lc7cy")
+texture = ExtResource("5_bwlwt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=1726330344]
 position = Vector2(1045, 255)
