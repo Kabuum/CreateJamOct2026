@@ -13,6 +13,8 @@ public partial class Obstacles : Area3D
 	private float spinAngle = 0f;
 	[Export] public float PushSpeed = 8f;
 	private Vector3 pushDirection;
+	[Export] private AudioStreamPlayer3D AudioManager;
+	[Export] private AudioStream[] Sound;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -26,6 +28,7 @@ public partial class Obstacles : Area3D
 
 		GD.Print("Sprite: ", sprite);
     	GD.Print("Camera: ", camera);
+		RemoveAfterDelay(25);
 	}
 
 	public void FindData(ObstacleData data)
@@ -57,11 +60,15 @@ public partial class Obstacles : Area3D
 
 		if(Data.ObstacleName == "Bomb")
 		{
+			AudioManager.Stream = Sound[0];
+			AudioManager.Play();
 			sprite.Texture = GD.Load<Texture2D>("res://Art/Effects/Explosion.png");
-			RemoveAfterDelay(1.5f);
+			RemoveAfterDelay(0.8f);
 		}
 		else
 		{
+			AudioManager.Stream = Sound[1];
+			AudioManager.Play();
 			hit = true;
 			RemoveAfterDelay(3f);
 		}
