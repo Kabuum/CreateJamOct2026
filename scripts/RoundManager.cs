@@ -10,6 +10,23 @@ public partial class RoundManager : Node
     // Players participating in the round
     private readonly HashSet<int> players = new();
 
+    // Keep the names selected in the multiplayer lobby.
+    private readonly Dictionary<int, string> playerNames = new();
+
+    public void RegisterPlayerName(int playerId, string chosenName)
+    {
+        playerNames[playerId] = string.IsNullOrWhiteSpace(chosenName)
+            ? $"Player {playerId}"
+            : chosenName;
+    }
+
+    private string GetPlayerName(int playerId)
+    {
+        return playerNames.TryGetValue(playerId, out string chosenName)
+            ? chosenName
+            : $"Player {playerId}";
+    }
+
     // True = escaped, False = caught
     private readonly Dictionary<int, bool> finishedPlayers = new();
 
@@ -296,7 +313,11 @@ public partial class RoundManager : Node
 				? "YOU ESCAPED!"
 				: "YOU WERE CAUGHT!";
 
-			spectatorLabel.Text = $"{status}\nSpectating Player {target.Name}";
+            string displayedName = int.TryParse(target.Name.ToString(), out int targetId)
+                ? GetPlayerName(targetId)
+                : target.Name.ToString();
+
+            spectatorLabel.Text = $"{status}\nSpectating {displayedName}";
 		}
 
 		// Position our spectator camera behind the target
@@ -358,7 +379,7 @@ public partial class RoundManager : Node
                 finishedPlayers[playerId] ? "ESCAPED" : "CAUGHT";
 
             results.AppendLine(
-                $"Player {playerId}: {score} points - {status}"
+                $"{GetPlayerName(playerId)}: {score} points - {status}"
             );
         }
 

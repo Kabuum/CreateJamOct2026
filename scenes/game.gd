@@ -109,6 +109,9 @@ func _spawn_player(data: Dictionary) -> Node:
 	p.transform = data.transform
 	p.setup(data.name, data.skin)
 
+	# Register the player's chosen name for spectating and results
+	$RoundManager.RegisterPlayerName(int(data.id), str(data.name))
+
 	return p
 
 
