@@ -50,7 +50,7 @@ properties/5/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-collision_layer = 4
+collision_layer = 5
 script = ExtResource("1_cij07")
 horse_idle = ExtResource("4_8dtrg")
 horse_turn = ExtResource("3_gk71f")
