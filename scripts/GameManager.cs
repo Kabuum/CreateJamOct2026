@@ -101,7 +101,7 @@ public partial class GameManager : Node
             Vector3 dir = (player.GlobalPosition - obstacles.GlobalPosition).Normalized();
             Vector3 impulse = dir * 30;
 
-            player.Call("apply_knockback", impulse, 0.5f);
+            player.Call("apply_knockback", impulse, 1.5f);
         }
     }
 
