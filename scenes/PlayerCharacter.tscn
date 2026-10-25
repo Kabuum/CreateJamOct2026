@@ -17,8 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://cwbspq8kyyh67" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/unstable.wav" id="15_82yci"]
 [ext_resource type="AudioStream" uid="uid://ccse58byb55n0" path="res://Sounds/Sound_effects/bouncesfx.wav" id="16_fibtl"]
 [ext_resource type="AudioStream" uid="uid://dxjwgv6civ7bw" path="res://Sounds/Sound_effects/tires_squal_loop.wav" id="17_8x2di"]
+[ext_resource type="AudioStream" uid="uid://1bw30y4ekpl7" path="res://Sounds/Sound_effects/itemPickupsfx.mp3" id="17_82yci"]
 [ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="18_8x2di"]
 [ext_resource type="Texture2D" uid="uid://cn15av0xsxrbp" path="res://Art/Effects/T_UI_Speaker.png" id="18_fibtl"]
+[ext_resource type="AudioStream" uid="uid://clwl7we33aw1c" path="res://Sounds/Sound_effects/cashier beep.mp3" id="18_rgpyw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6clo"]
 
@@ -55,6 +57,7 @@ cart_front_idle = ExtResource("3_bjtiv")
 cart_front_turn = ExtResource("7_abydg")
 max_speed = 19.0
 acceleration = 5.0
+turn_rate = 4.5
 horse_sounds = Array[AudioStream]([ExtResource("9_4cenb"), ExtResource("10_tica0"), ExtResource("11_qsdlq"), ExtResource("12_8x2di"), ExtResource("13_fibtl"), ExtResource("14_83pma"), ExtResource("15_82yci")])
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1794986362]
@@ -67,10 +70,19 @@ top_level = true
 transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 0.8285701, 2.0349865)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target" unique_id=802380698]
-current = true
 
 [node name="WallSFX" type="AudioStreamPlayer3D" parent="." unique_id=1336860375]
 stream = ExtResource("16_fibtl")
+volume_db = -11.686
+max_db = 0.64
+
+[node name="ItemPickupSFX" type="AudioStreamPlayer3D" parent="." unique_id=1758576880]
+stream = ExtResource("17_82yci")
+volume_db = -11.686
+max_db = 0.64
+
+[node name="CashierSFX" type="AudioStreamPlayer3D" parent="." unique_id=604041802]
+stream = ExtResource("18_rgpyw")
 volume_db = -11.686
 max_db = 0.64
 

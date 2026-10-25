@@ -2,10 +2,10 @@ using Godot;
 
 public partial class DepositZone : Area3D
 {
-    public override void _Ready()
-    {
-        BodyEntered += OnBodyEntered;
-    }
+	public override void _Ready()
+	{
+		BodyEntered += OnBodyEntered;
+	}
 
 	private void OnBodyEntered(Node3D body)
 	{
@@ -22,7 +22,7 @@ public partial class DepositZone : Area3D
 		int playerId = player.GetMultiplayerAuthority();
 
 		GD.Print($"Player {playerId} entered deposit zone!");
-
+		player.Rpc("play_cashier");
 		GameManager.Instance.DepositItems(playerId);
 	}
 }

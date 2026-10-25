@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clwl7we33aw1c"
+path="res://.godot/imported/cashier beep.mp3-8968d77e14aa2460901ee366a9d2b70f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sound_effects/cashier beep.mp3"
+dest_files=["res://.godot/imported/cashier beep.mp3-8968d77e14aa2460901ee366a9d2b70f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
