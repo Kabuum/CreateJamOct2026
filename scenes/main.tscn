@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bdnkso7qkgkjo" path="res://scenes/World.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d1weaai8jhacw" path="res://scenes/obstacle_spawner.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=1199739485]
 script = ExtResource("1_o5qli")
@@ -62,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.812893, 2.25281, 8.575329)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.758232, 2.252811, 8.681457)
 
 [node name="ObstacleSpawner" parent="." unique_id=1414794209 node_paths=PackedStringArray("spawnPoints") instance=ExtResource("4_tbgi4")]
-spawnPoints = [NodePath("Marker3D15"), NodePath("Marker3D16")]
+spawnPoints = [NodePath("Marker3D15"), NodePath("Marker3D16"), NodePath("Marker3D17"), NodePath("Marker3D18"), NodePath("Marker3D22"), NodePath("Marker3D21"), NodePath("Marker3D20"), NodePath("Marker3D19")]
 
 [node name="Marker3D15" type="Marker3D" parent="ObstacleSpawner" unique_id=1163356935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.56458, 2.252811, 3.2869787)
@@ -70,4 +69,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.56458, 2.252811, 3.2869787
 [node name="Marker3D16" type="Marker3D" parent="ObstacleSpawner" unique_id=1643989301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.746092, 0.95430017, 5.289345)
 
-[node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("5_tbgi4")]
+[node name="Marker3D17" type="Marker3D" parent="ObstacleSpawner" unique_id=707594559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.746092, 0.95430017, 17.289345)
+
+[node name="Marker3D18" type="Marker3D" parent="ObstacleSpawner" unique_id=611207784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7460918, 0.95430017, -17.710655)
+
+[node name="Marker3D19" type="Marker3D" parent="ObstacleSpawner" unique_id=1404194014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.253908, 0.95430017, -7.710655)
+
+[node name="Marker3D20" type="Marker3D" parent="ObstacleSpawner" unique_id=413566783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.746092, 0.95430017, -30.710655)
+
+[node name="Marker3D21" type="Marker3D" parent="ObstacleSpawner" unique_id=487336646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.746094, 0.95430017, 0.2893448)
+
+[node name="Marker3D22" type="Marker3D" parent="ObstacleSpawner" unique_id=337301695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7460938, 0.95430017, 0.2893448)

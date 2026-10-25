@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dqfyuq3f0koxk" path="res://scenes/game.gd" id="1_s8mej"]
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
+[ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="3_iucop"]
 [ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
+[ext_resource type="Texture2D" uid="uid://bvgecsdb8ssdv" path="res://Art/UI/crowd.png" id="4_lc7cy"]
 [ext_resource type="Script" uid="uid://du3p182vc5w2y" path="res://scripts/RoundManager.cs" id="4_tktvb"]
 [ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_8a7ea"]
+[ext_resource type="Texture2D" uid="uid://fbotarakydvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Unicorn.png" id="5_nk1uj"]
+[ext_resource type="Texture2D" uid="uid://citvuuqr16tvv" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Brown.png" id="6_bwlwt"]
+[ext_resource type="Texture2D" uid="uid://ja7ergdsdu0y" path="res://Art/UI/Tutorial.png" id="6_kijcd"]
+[ext_resource type="Texture2D" uid="uid://bs8yeoiujoq55" path="res://Art/Characters/MainCharacter/T_Avatar_Profile_Zebra.png" id="9_wl8sc"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
 script = ExtResource("1_s8mej")
@@ -30,33 +36,98 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="HostButton" type="Button" parent="Menu/ConnectPanel" unique_id=1815343281]
+process_priority = 3
 layout_mode = 0
-offset_left = 16.0
-offset_top = 364.0
-offset_right = 104.0
-offset_bottom = 452.0
+offset_left = 1003.0
+offset_top = 61.0
+offset_right = 1091.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("3_iucop")
+
+[node name="Label" type="Label" parent="Menu/ConnectPanel/HostButton" unique_id=1762733557]
+process_priority = 3
+layout_mode = 0
+offset_left = -17.0
+offset_top = -43.0
+offset_right = 119.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 32
+text = "HOST GAME"
 
 [node name="IPEdit" type="LineEdit" parent="Menu/ConnectPanel" unique_id=1497086759]
+process_priority = 3
 layout_mode = 0
-offset_left = 7.0
-offset_top = 9.0
-offset_right = 944.0
-offset_bottom = 161.0
+offset_left = 581.0
+offset_top = 239.00003
+offset_right = 1518.0
+offset_bottom = 391.00003
+scale = Vector2(0.42058876, 0.42058876)
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 62
+placeholder_text = "IP Address..."
 
 [node name="JoinButton" type="Button" parent="Menu/ConnectPanel" unique_id=604960559]
+process_priority = 3
 layout_mode = 0
-offset_left = 15.0
-offset_top = 171.0
-offset_right = 91.0
-offset_bottom = 247.0
+offset_left = 1001.0
+offset_top = 210.00002
+offset_right = 1077.0
+offset_bottom = 286.0
+scale = Vector2(1.1893647, 1.1893647)
+theme_override_fonts/font = ExtResource("3_iucop")
 
-[node name="Label" type="Label" parent="Menu/ConnectPanel" unique_id=1762733557]
+[node name="Label2" type="Label" parent="Menu/ConnectPanel/JoinButton" unique_id=16297410]
+process_priority = 3
 layout_mode = 0
-offset_left = 28.0
-offset_top = 321.0
-offset_right = 71.0
-offset_bottom = 344.0
-text = "HOST"
+offset_left = -21.019606
+offset_top = -28.5867
+offset_right = 114.98039
+offset_bottom = -4.5867004
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 32
+text = "JOIN GAME"
+
+[node name="Label3" type="Label" parent="Menu/ConnectPanel/JoinButton" unique_id=1310830073]
+process_priority = 3
+layout_mode = 0
+offset_left = -575.0969
+offset_top = -154.70445
+offset_right = -111.096924
+offset_bottom = -55.704453
+theme_override_colors/font_color = Color(0.84705883, 0.3647059, 0.20392157, 1)
+theme_override_colors/font_shadow_color = Color(0.3518119, 0.24613696, 0.13033083, 0)
+theme_override_fonts/font = ExtResource("3_iucop")
+theme_override_font_sizes/font_size = 64
+text = "HORSE AROUND:
+BLACK FRIDAY RUSH"
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ConnectPanel" unique_id=1363998243]
+process_priority = -15
+z_index = -6
+layout_mode = 0
+offset_left = -159.0
+offset_top = -113.0
+offset_right = -119.0
+offset_bottom = -73.0
+scale = Vector2(38.481247, 22.13003)
+mouse_filter = 2
+color = Color(0.25490198, 0.6745098, 0.5176471, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=112091371]
+position = Vector2(297, 330.00003)
+scale = Vector2(0.47026744, 0.47026744)
+texture = ExtResource("4_lc7cy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=1726330344]
+position = Vector2(1045, 255)
+scale = Vector2(0.08707027, 0.08707027)
+texture = ExtResource("5_nk1uj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Menu/ConnectPanel" unique_id=453048829]
+position = Vector2(1046, 105)
+scale = Vector2(0.087086365, 0.087086365)
+texture = ExtResource("6_bwlwt")
 
 [node name="Lobby" type="Control" parent="Menu" unique_id=2126478081]
 visible = false
@@ -68,27 +139,57 @@ script = ExtResource("3_pgt45")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Lobby" unique_id=387153380]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 887.0
+offset_top = 60.000008
+offset_right = 1001.0
+offset_bottom = 348.0
+scale = Vector2(1.8962227, 1.8962227)
 
 [node name="NameEdit" type="LineEdit" parent="Menu/Lobby/VBoxContainer" unique_id=1275932560]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iucop")
 placeholder_text = "Your Name"
 
 [node name="SkinOption" type="OptionButton" parent="Menu/Lobby/VBoxContainer" unique_id=2144552161]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iucop")
 
 [node name="PlayerList" type="ItemList" parent="Menu/Lobby/VBoxContainer" unique_id=31715117]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iucop")
 
 [node name="StartButton" type="Button" parent="Menu/Lobby/VBoxContainer" unique_id=1242270663]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iucop")
 text = "Start Game"
 
 [node name="StatusLabel" type="Label" parent="Menu/Lobby/VBoxContainer" unique_id=1836055807]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iucop")
 text = "Waiting For Host"
+
+[node name="ColorRect2" type="ColorRect" parent="Menu/Lobby" unique_id=1724696953]
+process_priority = -15
+z_index = -6
+layout_mode = 0
+offset_left = -159.0
+offset_top = -113.0
+offset_right = -119.0
+offset_bottom = -73.0
+scale = Vector2(38.481247, 22.13003)
+mouse_filter = 2
+color = Color(0.25490198, 0.6745098, 0.5176471, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menu/Lobby" unique_id=657956273]
+position = Vector2(330, 333)
+scale = Vector2(0.53908074, 0.53908074)
+texture = ExtResource("6_kijcd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Menu/Lobby" unique_id=467188147]
+position = Vector2(831, 554)
+scale = Vector2(0.093933105, 0.093933105)
+texture = ExtResource("9_wl8sc")
 
 [node name="ResultsPanel" type="Control" parent="Menu" unique_id=2112769678]
 layout_mode = 3

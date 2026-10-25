@@ -13,4 +13,4 @@ itemScene = ExtResource("2_6804n")
 ObstaclePool = Array[ExtResource("3_562o3")]([ExtResource("4_c22tc"), ExtResource("5_6804n"), ExtResource("6_562o3")])
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2009405652]
-wait_time = 10.0
+wait_time = 12.0
