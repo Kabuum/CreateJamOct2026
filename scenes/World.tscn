@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c3ldy1tdotf5p" path="res://Art/Prefabs/m_environment_checkout.tscn" id="2_7g83o"]
 [ext_resource type="Texture2D" uid="uid://bmgyijuwxu020" path="res://Art/Characters/The Rat.png" id="3_d1c63"]
 [ext_resource type="PackedScene" uid="uid://kpxonvvtqb57" path="res://Art/Prefabs/m_environment_gate.tscn" id="4_1lgw5"]
-[ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="5_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://cesjvlxdlki41" path="res://scenes/Exit_Zone.tscn" id="5_7c4bj"]
 [ext_resource type="Texture2D" uid="uid://57oh2vk45yii" path="res://Art/Environment/Posters/90% off.png" id="6_pdh0q"]
 [ext_resource type="Texture2D" uid="uid://1m7qm1s3cniq" path="res://Art/Environment/Posters/buybuybuy.png" id="7_h1bdy"]
@@ -154,5 +153,3 @@ autoplay = true
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=775378942]
 transform = Transform3D(113.74001, 0, 0, 0, 0.39999998, 0, 0, 0, 263.52002, 0, 8, 0)
 material = SubResource("StandardMaterial3D_gu8p3")
-
-[node name="NetworkScene" parent="." unique_id=1396918261 instance=ExtResource("5_1lgw5")]
