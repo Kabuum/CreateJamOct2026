@@ -14,8 +14,8 @@ var started := false
 
 func _ready() -> void:
 	name_edit.max_length = 16
-	for n in Skins.NAMES:
-		skin_option.add_item(n)
+	for i in Skins.NAMES.size():
+		skin_option.add_item(Skins.NAMES[i], i)
 	skin_option.item_selected.connect(func(_i): _send_profile())
 	name_edit.text_changed.connect(func(_t): _send_profile())
 	name_edit.focus_exited.connect(_send_profile)

@@ -1,4 +1,9 @@
 class_name Skins
 
-const NAMES := ["Red", "Blue", "Green", "Yellow"]
-const COLORS := [Color.RED, Color.DODGER_BLUE, Color.LIME_GREEN, Color.GOLD]
+const NAMES := ["Brown Horse", "Unicorn", "Zebra"]
+const COLORS := [Color.BROWN, Color.DODGER_BLUE, Color.ANTIQUE_WHITE]
+const ICONS := [
+	preload("res://Art/Characters/MainCharacter/T_Avatar_Profile_Brown.png"),
+	preload("res://Art/Characters/MainCharacter/T_Avatar_Profile_Unicorn.png"),
+	preload("res://Art/Characters/MainCharacter/T_Avatar_Profile_Zebra.png"),
+]
