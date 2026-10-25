@@ -68,7 +68,7 @@ itemScene = ExtResource("2_2vh2f")
 ItemPool = Array[ExtResource("3_jqlno")]([SubResource("Resource_ecbsi"), SubResource("Resource_mvqr3"), SubResource("Resource_jrkat"), SubResource("Resource_t25ou"), SubResource("Resource_mev7k"), SubResource("Resource_bsk8a"), SubResource("Resource_2jct4")])
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1785552942]
-wait_time = 4.0
+wait_time = 1.5
 
 [node name="ItemMultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=142906286]
 spawn_path = NodePath("..")

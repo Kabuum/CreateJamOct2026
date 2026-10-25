@@ -26,20 +26,33 @@ shading_mode = 0
 albedo_texture = ExtResource("3_w3swu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx1wt"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_texture = ExtResource("3_lg7do")
+albedo_texture = ExtResource("6_w3swu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nimxs"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("4_kdebx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2bas"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("5_pvo4v")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjtvm"]
+transparency = 2
+alpha_scissor_threshold = 0.081
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
 shading_mode = 0
-albedo_texture = ExtResource("6_w3swu")
+albedo_texture = ExtResource("3_lg7do")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbgk0"]
 shading_mode = 0
@@ -51,32 +64,32 @@ albedo_texture = ExtResource("7_pvo4v")
 
 [node name="M_Environment_Tiles" unique_id=1260605761 instance=ExtResource("1_kh3qh")]
 
-[node name="01_CornerCase" parent="." index="0" unique_id=343255846]
+[node name="01_CornerCase" parent="." index="0" unique_id=925689024]
 surface_material_override/0 = SubResource("StandardMaterial3D_bxg6y")
 
-[node name="02_FillCase" parent="." index="1" unique_id=1527079382]
+[node name="02_FillCase" parent="." index="1" unique_id=404784813]
 surface_material_override/0 = SubResource("StandardMaterial3D_tsje5")
 
-[node name="03_SideCase" parent="." index="2" unique_id=1299804330]
+[node name="03_SideCase" parent="." index="2" unique_id=596459273]
 surface_material_override/0 = SubResource("StandardMaterial3D_ur0i4")
 
-[node name="04_Pillar" parent="." index="3" unique_id=1752407596]
+[node name="04_Pillar" parent="." index="3" unique_id=1399739324]
 surface_material_override/0 = SubResource("StandardMaterial3D_dmnj0")
 
-[node name="05_Shelf" parent="." index="4" unique_id=1391395043]
+[node name="05_Shelf" parent="." index="4" unique_id=1537326807]
 surface_material_override/0 = SubResource("StandardMaterial3D_lx1wt")
 
-[node name="06_Shelf" parent="." index="5" unique_id=1593971881]
+[node name="06_Shelf" parent="." index="5" unique_id=34231246]
 surface_material_override/0 = SubResource("StandardMaterial3D_nimxs")
 
-[node name="07_Shelf" parent="." index="6" unique_id=1858463696]
+[node name="07_Shelf" parent="." index="6" unique_id=133133033]
 surface_material_override/0 = SubResource("StandardMaterial3D_f2bas")
 
-[node name="08_Shelf" parent="." index="7" unique_id=979651533]
+[node name="08_Shelf" parent="." index="7" unique_id=2042900820]
 surface_material_override/0 = SubResource("StandardMaterial3D_mjtvm")
 
-[node name="09_WindowCase_R" parent="." index="8" unique_id=938739637]
+[node name="09_WindowCase_R" parent="." index="8" unique_id=494496701]
 surface_material_override/0 = SubResource("StandardMaterial3D_vbgk0")
 
-[node name="10_WindowCase_L" parent="." index="9" unique_id=89072997]
+[node name="10_WindowCase_L" parent="." index="9" unique_id=1984414646]
 surface_material_override/0 = SubResource("StandardMaterial3D_208np")
