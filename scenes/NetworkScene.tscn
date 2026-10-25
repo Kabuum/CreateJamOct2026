@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c8htr0b53sgeo" path="res://scenes/PlayerCharacter.tscn" id="2_pgt45"]
 [ext_resource type="Script" uid="uid://ba71nw504x4d3" path="res://scenes/lobby.gd" id="3_pgt45"]
 [ext_resource type="Script" uid="uid://du3p182vc5w2y" path="res://scripts/RoundManager.cs" id="4_tktvb"]
+[ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_8a7ea"]
 
 [node name="NetworkScene" type="Node3D" unique_id=1396918261]
 script = ExtResource("1_s8mej")
@@ -94,3 +95,5 @@ script = ExtResource("4_tktvb")
 
 [node name="GameTimer" type="Timer" parent="RoundManager" unique_id=205283343]
 wait_time = 25.0
+
+[node name="HUD" parent="." unique_id=1509272599 instance=ExtResource("5_8a7ea")]

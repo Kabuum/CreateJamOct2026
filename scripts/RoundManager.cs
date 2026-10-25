@@ -22,6 +22,14 @@ public partial class RoundManager : Node
     private bool roundStarted = false;
     private bool roundEnded = false;
 
+    private bool hudActive = false;
+    private int lastSentSecond = -1;
+	
+	private CanvasLayer gameHud;
+	private Label timerLabel;
+	private Label scoreLabel;
+	private Label gatesLabel;
+
     public override void _Ready()
     {
         Instance = this;
@@ -29,6 +37,23 @@ public partial class RoundManager : Node
         Multiplayer.PeerConnected += OnPeerConnected;
         Multiplayer.PeerDisconnected += OnPeerDisconnected;
 		gameTimer = GetNode<Timer>("GameTimer");
+
+		// Get existing HUD
+		gameHud = GetNode<CanvasLayer>("../HUD");
+
+		timerLabel = gameHud.GetNode<Label>("TimerLabel");
+		scoreLabel = gameHud.GetNode<Label>("ScoreLabel");
+		gatesLabel = gameHud.GetNodeOrNull<Label>("GatesLabel");
+
+        if (gatesLabel == null)
+        {
+            GD.PushWarning("RoundManager: HUD/GatesLabel is missing. Timer and score will still work.");
+        }
+
+        gameTimer.Timeout += OnGameTimerTimeout;
+
+		// Hide HUD until the round starts
+		gameHud.Visible = false;
     }
 
     public override void _ExitTree()
@@ -64,7 +89,11 @@ public partial class RoundManager : Node
 		gatesOpened = false;
 
 		// Start the match countdown
+        lastSentSecond = -1;
 		gameTimer.Start();
+
+        // Tell every client (and the host) to display the HUD
+        Rpc(MethodName.ShowGameHud, Mathf.CeilToInt(gameTimer.TimeLeft));
 
 		GD.Print("Round started! Countdown is running.");
     }
@@ -213,6 +242,8 @@ public partial class RoundManager : Node
 
     public override void _Process(double delta)
     {
+        UpdateLocalScore();
+
         if (spectatorCamera == null || roundEnded)
         {
             return;
@@ -333,6 +364,8 @@ public partial class RoundManager : Node
     private void ShowResults(string results)
     {
         roundEnded = true;
+        hudActive = false;
+        gameHud.Visible = false;
 
         if (spectatorCamera != null)
         {
@@ -421,32 +454,107 @@ public partial class RoundManager : Node
 			}
 		}
 
+        // The gates are open: warn all players through the existing HUD
+        timerLabel.Modulate = Colors.Red;
+        scoreLabel.Modulate = Colors.Red;
+
+        if (gatesLabel != null)
+        {
+            gatesLabel.Text = "The gates are now open!";
+            gatesLabel.Modulate = Colors.Red;
+            gatesLabel.Show();
+        }
+
 		GD.Print("All gates and exits opened!");
 	}
-	public override void _PhysicsProcess(double delta)
-	{
-		// Don't process when the round isn't running
-		if (!roundStarted || roundEnded)
-		{
-			return;
-		}
+    [Rpc(
+        MultiplayerApi.RpcMode.Authority,
+        CallLocal = true,
+        TransferMode = MultiplayerPeer.TransferModeEnum.Reliable
+    )]
+    private void ShowGameHud(int secondsLeft)
+    {
+        hudActive = true;
 
-		// Don't process without a multiplayer connection
-		if (Multiplayer.MultiplayerPeer == null || !Multiplayer.IsServer())
-		{
-			return;
-		}
+        timerLabel.Modulate = Colors.White;
+        scoreLabel.Modulate = Colors.White;
+        scoreLabel.Text = "Score: 0";
 
-		if (gatesOpened || gameTimer.IsStopped())
-		{
-			return;
-		}
+        if (gatesLabel != null)
+        {
+            gatesLabel.Hide();
+        }
 
-		if (gameTimer.TimeLeft <= 20)
-		{
-			gatesOpened = true;
+        UpdateGameHudTime(secondsLeft);
+        gameHud.Visible = true;
+    }
 
-			Rpc(MethodName.OpenGates);
-		}
-	}
+    [Rpc(
+        MultiplayerApi.RpcMode.Authority,
+        CallLocal = true,
+        TransferMode = MultiplayerPeer.TransferModeEnum.Reliable
+    )]
+    private void UpdateGameHudTime(int secondsLeft)
+    {
+        timerLabel.Text = $"{secondsLeft / 60:00}:{secondsLeft % 60:00}";
+    }
+
+    private void UpdateLocalScore()
+    {
+        if (!hudActive || roundEnded ||
+            Multiplayer.MultiplayerPeer == null ||
+            Multiplayer.MultiplayerPeer is OfflineMultiplayerPeer)
+        {
+            return;
+        }
+
+        int playerId = Multiplayer.GetUniqueId();
+        scoreLabel.Text = $"Score: {GameManager.Instance.GetScore(playerId)}";
+    }
+
+    private void OnGameTimerTimeout()
+    {
+        if (!roundStarted || roundEnded ||
+            Multiplayer.MultiplayerPeer == null ||
+            !Multiplayer.IsServer())
+        {
+            return;
+        }
+
+        Rpc(MethodName.UpdateGameHudTime, 0);
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if (!roundStarted || roundEnded)
+        {
+            return;
+        }
+
+        if (Multiplayer.MultiplayerPeer == null ||
+            Multiplayer.MultiplayerPeer is OfflineMultiplayerPeer ||
+            !Multiplayer.IsServer())
+        {
+            return;
+        }
+
+        if (gameTimer == null || gameTimer.IsStopped())
+        {
+            return;
+        }
+
+        int secondsLeft = Mathf.CeilToInt(gameTimer.TimeLeft);
+
+        if (secondsLeft != lastSentSecond)
+        {
+            lastSentSecond = secondsLeft;
+            Rpc(MethodName.UpdateGameHudTime, secondsLeft);
+        }
+
+        if (!gatesOpened && gameTimer.TimeLeft <= 20)
+        {
+            gatesOpened = true;
+            Rpc(MethodName.OpenGates);
+        }
+    }
 }
