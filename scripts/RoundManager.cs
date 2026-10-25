@@ -37,6 +37,9 @@ public partial class RoundManager : Node
         Multiplayer.PeerConnected += OnPeerConnected;
         Multiplayer.PeerDisconnected += OnPeerDisconnected;
 		gameTimer = GetNode<Timer>("GameTimer");
+        gameTimer.OneShot = true;
+        gameTimer.Autostart = false;
+        gameTimer.Stop();
 
 		// Get existing HUD
 		gameHud = GetNode<CanvasLayer>("../HUD");
@@ -69,6 +72,12 @@ public partial class RoundManager : Node
             return;
         }
 
+        // Prevent the same round from starting twice
+        if (roundStarted)
+        {
+            return;
+        }
+        
         players.Clear();
         finishedPlayers.Clear();
 

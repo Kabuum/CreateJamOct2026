@@ -195,6 +195,7 @@ texture = ExtResource("9_wl8sc")
 script = ExtResource("4_tktvb")
 
 [node name="GameTimer" type="Timer" parent="RoundManager" unique_id=205283343]
-wait_time = 25.0
+wait_time = 100.0
+one_shot = true
 
 [node name="HUD" parent="." unique_id=1509272599 instance=ExtResource("5_8a7ea")]
