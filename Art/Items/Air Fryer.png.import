@@ -4,14 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brwbr8b7wk40p"
 path="res://.godot/imported/Air fryer.png-3033b1c18b1b70650b93c1dcf0642a5d.ctex"
+uid="uid://mdro2xj6java"
+path="res://.godot/imported/Air Fryer.png-8420350cc0adacd32430366f416be958.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Air fryer.png"
-dest_files=["res://.godot/imported/Air fryer.png-3033b1c18b1b70650b93c1dcf0642a5d.ctex"]
+source_file="res://Art/Items/Air Fryer.png"
+dest_files=["res://.godot/imported/Air Fryer.png-8420350cc0adacd32430366f416be958.ctex"]
 
 [params]
 
