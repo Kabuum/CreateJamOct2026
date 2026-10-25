@@ -62,12 +62,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.812893, 2.25281, 8.575329)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.758232, 2.252811, 8.681457)
 
 [node name="ObstacleSpawner" parent="." unique_id=1414794209 node_paths=PackedStringArray("spawnPoints") instance=ExtResource("4_tbgi4")]
-spawnPoints = [NodePath("Marker3D15")]
+spawnPoints = [NodePath("Marker3D15"), NodePath("Marker3D16")]
 
 [node name="Marker3D15" type="Marker3D" parent="ObstacleSpawner" unique_id=1163356935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.56458, 2.252811, 3.2869787)
 
 [node name="Marker3D16" type="Marker3D" parent="ObstacleSpawner" unique_id=1643989301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.511923, 2.252811, -7.0206776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.746092, 0.95430017, 5.289345)
 
 [node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("5_tbgi4")]
