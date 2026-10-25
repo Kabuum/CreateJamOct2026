@@ -5,8 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cdumiwbbl4eq" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Idle_Front.png" id="3_bjtiv"]
 [ext_resource type="Texture2D" uid="uid://bqshmsnhhurbe" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Turn.png" id="3_gk71f"]
 [ext_resource type="Texture2D" uid="uid://bsiv6m2yyoks" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Idle.png" id="4_8dtrg"]
+[ext_resource type="Texture2D" uid="uid://b6j2rjb04nxyd" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Unicorn_Idle.png" id="4_j8mud"]
 [ext_resource type="Texture2D" uid="uid://dgowgued0ggqm" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Back.png" id="5_iqs6o"]
+[ext_resource type="Texture2D" uid="uid://clv2fxcli2mnv" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Unicorn_Turn.png" id="5_ivofm"]
+[ext_resource type="Texture2D" uid="uid://dfkodw17m3i15" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Zebra_Idle.png" id="6_lkt2r"]
 [ext_resource type="Texture2D" uid="uid://cux6dnk717jbw" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Front.png" id="7_abydg"]
+[ext_resource type="Texture2D" uid="uid://slelsjqmi882" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Zebra_Turn.png" id="7_skgbq"]
 [ext_resource type="Texture2D" uid="uid://bhbflwtkm71b2" path="res://Art/Characters/MainCharacter/T_Avatar_Stun.png" id="8_iqs6o"]
 [ext_resource type="AudioStream" uid="uid://bp4vrsg8kaa3b" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/full_price.wav" id="9_4cenb"]
 [ext_resource type="AudioStream" uid="uid://cukrr6odvvtqq" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/pat_heste_lyd.wav" id="10_tica0"]
@@ -50,6 +54,12 @@ collision_layer = 4
 script = ExtResource("1_cij07")
 horse_idle = ExtResource("4_8dtrg")
 horse_turn = ExtResource("3_gk71f")
+brown_horse_idle = ExtResource("4_8dtrg")
+brown_horse_turn = ExtResource("3_gk71f")
+unicorn_idle = ExtResource("4_j8mud")
+unicorn_turn = ExtResource("5_ivofm")
+zebra_idle = ExtResource("6_lkt2r")
+zebra_turn = ExtResource("7_skgbq")
 stun_tex = ExtResource("8_iqs6o")
 cart_back_idle = ExtResource("2_w4u4s")
 cart_back_turn = ExtResource("5_iqs6o")

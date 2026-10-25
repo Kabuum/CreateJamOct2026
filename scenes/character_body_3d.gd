@@ -4,6 +4,13 @@ extends CharacterBody3D
 @export_group("Sprites")
 @export var horse_idle: Texture2D
 @export var horse_turn: Texture2D
+@export var brown_horse_idle: Texture2D
+@export var brown_horse_turn: Texture2D
+@export var unicorn_idle: Texture2D
+@export var unicorn_turn: Texture2D
+@export var zebra_idle: Texture2D
+@export var zebra_turn: Texture2D
+
 @export var stun_tex: Texture2D
 @export var cart_back_idle: Texture2D
 @export var cart_back_turn: Texture2D
@@ -25,6 +32,8 @@ extends CharacterBody3D
 var anim_time := 0.0
 var speak_time := 0.0
 
+var _idle_tex: Texture2D
+var _turn_tex: Texture2D
 
 @export_group("Speed")
 @export var max_speed := 20.0
@@ -215,6 +224,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	$Label3D.text = display_name
+	_apply_skin()
 	stun_sprite.hframes = stun_frames
 	_setup_sprite(cart_front_sprite, 0)
 	_setup_sprite(cart_back_sprite, 1)
@@ -243,12 +253,12 @@ func _process(delta: float) -> void:
 		speak_time -= delta
 		if speak_time <= 0.0:
 			speak_sprite.visible = false
-	
+
 func _update_visuals(delta: float, stunned: bool = false) -> void:
 	var turning := absf(steer) > turn_treshhold
 	var flip := turning and steer > 0.0
 	
-	horse_sprite.texture = horse_turn if turning else horse_idle
+	horse_sprite.texture = _turn_tex if turning else _idle_tex
 	horse_sprite.hframes = horse_turn_frames if turning else horse_idle_frames
 	cart_front_sprite.texture = cart_front_turn if turning else cart_front_idle
 	cart_back_sprite.texture = cart_back_turn if turning else cart_back_idle
@@ -273,3 +283,18 @@ func _update_visuals(delta: float, stunned: bool = false) -> void:
 func setup(n: String, s: int) -> void:
 	display_name = n
 	skin_index = s
+
+func _apply_skin() -> void:
+	match skin_index:
+		0:
+			_idle_tex = horse_idle
+			_turn_tex = horse_turn
+		1:
+			_idle_tex = unicorn_idle
+			_turn_tex = unicorn_turn
+		2:
+			_idle_tex = zebra_idle
+			_turn_tex = zebra_turn
+		_:
+			_idle_tex = horse_idle
+			_turn_tex = horse_turn
