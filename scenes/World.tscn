@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ldy1tdotf5p" path="res://Art/Prefabs/m_environment_checkout.tscn" id="2_7g83o"]
 [ext_resource type="Texture2D" uid="uid://bmgyijuwxu020" path="res://Art/Characters/The Rat.png" id="3_d1c63"]
 [ext_resource type="PackedScene" uid="uid://kpxonvvtqb57" path="res://Art/Prefabs/m_environment_gate.tscn" id="4_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://46g2pydoofka" path="res://scenes/deposit_zone.tscn" id="4_7c4bj"]
 [ext_resource type="PackedScene" uid="uid://cesjvlxdlki41" path="res://scenes/Exit_Zone.tscn" id="5_7c4bj"]
 [ext_resource type="Texture2D" uid="uid://57oh2vk45yii" path="res://Art/Environment/Posters/90% off.png" id="6_pdh0q"]
 [ext_resource type="Texture2D" uid="uid://1m7qm1s3cniq" path="res://Art/Environment/Posters/buybuybuy.png" id="7_h1bdy"]
@@ -68,6 +69,15 @@ transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-
 flip_h = true
 billboard = 1
 texture = ExtResource("3_d1c63")
+
+[node name="DepositZone" parent="." unique_id=302882421 instance=ExtResource("4_7c4bj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 1.3292742, 0.07816887, -22.32674)
+
+[node name="DepositZone2" parent="." unique_id=919866299 instance=ExtResource("4_7c4bj")]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 0.7, -14.585199, 0, 3.3629358)
+
+[node name="DepositZone3" parent="." unique_id=2052533078 instance=ExtResource("4_7c4bj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 1.3783932, 0, 25.285246)
 
 [node name="M_Environment_Gate" parent="." unique_id=1715291154 instance=ExtResource("4_1lgw5")]
 transform = Transform3D(-1, 0, 1.7484555e-07, 0, 2, 0, -8.742278e-08, 0, -2, -20.9, 0, 0)
