@@ -191,32 +191,6 @@ position = Vector2(831, 554)
 scale = Vector2(0.093933105, 0.093933105)
 texture = ExtResource("9_wl8sc")
 
-[node name="ResultsPanel" type="Control" parent="Menu" unique_id=2112769678]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Background" type="ColorRect" parent="Menu/ResultsPanel" unique_id=109286730]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TitleLabel" type="Label" parent="Menu/ResultsPanel" unique_id=1511263856]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ResultsLabel" type="Label" parent="Menu/ResultsPanel" unique_id=570117169]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ReturnLabel" type="Label" parent="Menu/ResultsPanel" unique_id=1267082424]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="RoundManager" type="Node" parent="." unique_id=234566709]
 script = ExtResource("4_tktvb")
 

@@ -417,16 +417,13 @@ public partial class RoundManager : Node
             return;
         }
 
-        // Disconnect from multiplayer
-        Multiplayer.MultiplayerPeer = null;
-
         // Clear scores and inventories for the next round
         GameManager.Instance.ResetRoundData();
 
-        // Reload NetworkScene, including its existing Host/Join menu
-        GetTree().ReloadCurrentScene();
+        // Let NetworkManager handle disconnecting and reloading
+        GetNode("/root/NetworkManager").Call("return_to_menu");
     }
-
+    
 	[Rpc(
 		MultiplayerApi.RpcMode.Authority,
 		CallLocal = true,
