@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bdnkso7qkgkjo" path="res://scenes/World.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://u0hwymxern0w" path="res://scenes/NetworkScene.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d1weaai8jhacw" path="res://scenes/obstacle_spawner.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dmfq610m1aoq4" path="res://scenes/HUD.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=1199739485]
 script = ExtResource("1_o5qli")
@@ -87,5 +86,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.746094, 0.95430017, 0.2893
 
 [node name="Marker3D22" type="Marker3D" parent="ObstacleSpawner" unique_id=337301695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7460938, 0.95430017, 0.2893448)
-
-[node name="CanvasLayer" parent="." unique_id=1509272599 instance=ExtResource("5_tbgi4")]
