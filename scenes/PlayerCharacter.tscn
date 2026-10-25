@@ -5,18 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://cdumiwbbl4eq" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Idle_Front.png" id="3_bjtiv"]
 [ext_resource type="Texture2D" uid="uid://bqshmsnhhurbe" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Turn.png" id="3_gk71f"]
 [ext_resource type="Texture2D" uid="uid://bsiv6m2yyoks" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Brown_Idle.png" id="4_8dtrg"]
+[ext_resource type="Texture2D" uid="uid://b6j2rjb04nxyd" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Unicorn_Idle.png" id="4_j8mud"]
 [ext_resource type="Texture2D" uid="uid://dgowgued0ggqm" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Back.png" id="5_iqs6o"]
+[ext_resource type="Texture2D" uid="uid://clv2fxcli2mnv" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Unicorn_Turn.png" id="5_ivofm"]
+[ext_resource type="Texture2D" uid="uid://dfkodw17m3i15" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Zebra_Idle.png" id="6_lkt2r"]
 [ext_resource type="Texture2D" uid="uid://cux6dnk717jbw" path="res://Art/Characters/MainCharacter/T_Avatar_ShoppingCart_Turn_Front.png" id="7_abydg"]
+[ext_resource type="Texture2D" uid="uid://slelsjqmi882" path="res://Art/Characters/MainCharacter/T_Avatar_Horse_Zebra_Turn.png" id="7_skgbq"]
 [ext_resource type="Texture2D" uid="uid://bhbflwtkm71b2" path="res://Art/Characters/MainCharacter/T_Avatar_Stun.png" id="8_iqs6o"]
-[ext_resource type="AudioStream" uid="uid://bp4vrsg8kaa3b" path="res://Sounds/horse _sounds/full_price.wav" id="9_4cenb"]
-[ext_resource type="AudioStream" uid="uid://cukrr6odvvtqq" path="res://Sounds/horse _sounds/pat_heste_lyd.wav" id="10_tica0"]
-[ext_resource type="AudioStream" uid="uid://eatkwi1y5a7f" path="res://Sounds/horse _sounds/pat_johnny_bravo.wav" id="11_qsdlq"]
-[ext_resource type="AudioStream" uid="uid://bed08xvqd41qg" path="res://Sounds/horse _sounds/Seb_clip_clop.wav" id="12_8x2di"]
-[ext_resource type="AudioStream" uid="uid://dbcf6xsc8ilwu" path="res://Sounds/horse _sounds/Seb_giddy_up.wav" id="13_fibtl"]
-[ext_resource type="AudioStream" uid="uid://dopdbdca5pwv8" path="res://Sounds/horse _sounds/Sigurd_hay.wav" id="14_83pma"]
-[ext_resource type="AudioStream" uid="uid://cwbspq8kyyh67" path="res://Sounds/horse _sounds/unstable.wav" id="15_82yci"]
-[ext_resource type="AudioStream" uid="uid://c4iytt63y36x5" path="res://Sounds/Sound_effects/dragon-studio-car-crash-sound-376882.mp3" id="16_qsdlq"]
+[ext_resource type="AudioStream" uid="uid://bp4vrsg8kaa3b" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/full_price.wav" id="9_4cenb"]
+[ext_resource type="AudioStream" uid="uid://cukrr6odvvtqq" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/pat_heste_lyd.wav" id="10_tica0"]
+[ext_resource type="AudioStream" uid="uid://eatkwi1y5a7f" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/pat_johnny_bravo.wav" id="11_qsdlq"]
+[ext_resource type="AudioStream" uid="uid://bed08xvqd41qg" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Seb_clip_clop.wav" id="12_8x2di"]
+[ext_resource type="AudioStream" uid="uid://dbcf6xsc8ilwu" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Seb_giddy_up.wav" id="13_fibtl"]
+[ext_resource type="AudioStream" uid="uid://dopdbdca5pwv8" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/Sigurd_hay.wav" id="14_83pma"]
+[ext_resource type="AudioStream" uid="uid://cwbspq8kyyh67" path="res://Sounds/horse _sounds_CutDown/horse _sounds_CutDown/unstable.wav" id="15_82yci"]
+[ext_resource type="AudioStream" uid="uid://ccse58byb55n0" path="res://Sounds/Sound_effects/bouncesfx.wav" id="16_fibtl"]
 [ext_resource type="AudioStream" uid="uid://dxjwgv6civ7bw" path="res://Sounds/Sound_effects/tires_squal_loop.wav" id="17_8x2di"]
+[ext_resource type="AudioStream" uid="uid://1bw30y4ekpl7" path="res://Sounds/Sound_effects/itemPickupsfx.mp3" id="17_82yci"]
+[ext_resource type="FontFile" uid="uid://dsn3nf3c370b" path="res://Art/Gamejamcapsnumb-Regular.ttf" id="18_8x2di"]
+[ext_resource type="Texture2D" uid="uid://cn15av0xsxrbp" path="res://Art/Effects/T_UI_Speaker.png" id="18_fibtl"]
+[ext_resource type="AudioStream" uid="uid://clwl7we33aw1c" path="res://Sounds/Sound_effects/cashier beep.mp3" id="18_rgpyw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6clo"]
 
@@ -41,16 +49,25 @@ properties/5/spawn = true
 properties/5/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1351616238 groups=["Player"]]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 collision_layer = 4
 script = ExtResource("1_cij07")
 horse_idle = ExtResource("4_8dtrg")
 horse_turn = ExtResource("3_gk71f")
+brown_horse_idle = ExtResource("4_8dtrg")
+brown_horse_turn = ExtResource("3_gk71f")
+unicorn_idle = ExtResource("4_j8mud")
+unicorn_turn = ExtResource("5_ivofm")
+zebra_idle = ExtResource("6_lkt2r")
+zebra_turn = ExtResource("7_skgbq")
 stun_tex = ExtResource("8_iqs6o")
 cart_back_idle = ExtResource("2_w4u4s")
 cart_back_turn = ExtResource("5_iqs6o")
 cart_front_idle = ExtResource("3_bjtiv")
 cart_front_turn = ExtResource("7_abydg")
+max_speed = 19.0
+acceleration = 5.0
+turn_rate = 4.5
 horse_sounds = Array[AudioStream]([ExtResource("9_4cenb"), ExtResource("10_tica0"), ExtResource("11_qsdlq"), ExtResource("12_8x2di"), ExtResource("13_fibtl"), ExtResource("14_83pma"), ExtResource("15_82yci")])
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1794986362]
@@ -60,17 +77,28 @@ shape = SubResource("CapsuleShape3D_e6clo")
 top_level = true
 
 [node name="Camera_Target" type="Node3D" parent="Camera_Controller" unique_id=1960741444]
-transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 0.8285701, 1.6349864)
+transform = Transform3D(1, 0, 0, 0, 0.9977882, 0.066473454, 0, -0.066473454, 0.9977882, 0, 0.8285701, 2.0349865)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target" unique_id=802380698]
-current = true
 
 [node name="WallSFX" type="AudioStreamPlayer3D" parent="." unique_id=1336860375]
-stream = ExtResource("16_qsdlq")
+stream = ExtResource("16_fibtl")
+volume_db = -11.686
+max_db = 0.64
+
+[node name="ItemPickupSFX" type="AudioStreamPlayer3D" parent="." unique_id=1758576880]
+stream = ExtResource("17_82yci")
+volume_db = -11.686
+max_db = 0.64
+
+[node name="CashierSFX" type="AudioStreamPlayer3D" parent="." unique_id=604041802]
+stream = ExtResource("18_rgpyw")
+volume_db = -11.686
+max_db = 0.64
 
 [node name="DriftSFX" type="AudioStreamPlayer3D" parent="." unique_id=514948795]
 stream = ExtResource("17_8x2di")
-max_db = 2.0
+max_db = 1.0
 
 [node name="HorseSFX" type="AudioStreamPlayer3D" parent="." unique_id=1727941882]
 volume_db = 5.0
@@ -96,3 +124,18 @@ billboard = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8397696, 0)
 billboard = 1
 texture = ExtResource("8_iqs6o")
+
+[node name="Speak" type="Sprite3D" parent="Visuals" unique_id=1975476123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0397696, 0)
+visible = false
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("18_fibtl")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=854989964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1584456, 0)
+billboard = 1
+render_priority = 4
+font = ExtResource("18_8x2di")
+font_size = 64
+outline_size = 16

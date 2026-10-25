@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Drawing;
 
 public partial class ObstacleSpawner : Node
 {
@@ -11,6 +12,8 @@ public partial class ObstacleSpawner : Node
     private readonly RandomNumberGenerator random = new();
 
     [Export] private Godot.Collections.Array<Marker3D> spawnPoints = new();
+
+    private readonly Dictionary<Marker3D, Node3D> occupiedPoints = new();
 
     [Export] public Godot.Collections.Array<ObstacleData> ObstaclePool = new();
 
@@ -25,7 +28,7 @@ public partial class ObstacleSpawner : Node
         // Start spawning
         spawnTimer.Start();
 
-        for(int i = 0; i < spawnPoints.Count; i++)
+        /*for(int i = 0; i < spawnPoints.Count; i++)
         {
             spawnPoints[i].Position = new Vector3(
                 spawnPoints[i].Position.X,
@@ -33,21 +36,49 @@ public partial class ObstacleSpawner : Node
                 spawnPoints[i].Position.Z
             );
             GD.Print(spawnPoints[i].Position);
-        }
+        }*/
     }
 
     public void SpawnObstacle()
     {
-        if (itemScene == null || spawnPoints.Count == 0)
+        // Only spawn on the server after multiplayer starts
+        if (!Multiplayer.IsServer() ||
+            Multiplayer.MultiplayerPeer is OfflineMultiplayerPeer)
         {
-            GD.PrintErr("Missing item scene or spawn points!");
             return;
         }
 
-        // Select a random spawn point
-        int index = random.RandiRange(0, spawnPoints.Count - 1);
+        if (itemScene == null || spawnPoints.Count == 0 || ObstaclePool.Count == 0)
+        {
+            GD.PrintErr("Missing item scene, spawn points, or item pool!");
+            return;
+        }
 
-        Marker3D spawnPoint = spawnPoints[index];
+        // Find all available spawn points
+        List<Marker3D> availablePoints = new();
+
+        foreach (Marker3D point in spawnPoints)
+        {
+            if (!occupiedPoints.TryGetValue(point, out Node3D existingItem)
+                || !GodotObject.IsInstanceValid(existingItem))
+            {
+                availablePoints.Add(point);
+            }
+        }
+
+        GD.Print(availablePoints.Count);
+
+        // Stop if all spawn points are occupied
+        if (availablePoints.Count == 0)
+        {
+            GD.Print("All spawn points are occupied!");
+            return;
+        }
+
+        // Select a random available spawn point
+        int index = random.RandiRange(0, availablePoints.Count - 1);
+
+        Marker3D spawnPoint = availablePoints[index];
 
         // Create the Obstacle
         ObstacleData Data = GetRandomObstacle();
@@ -56,6 +87,8 @@ public partial class ObstacleSpawner : Node
         // Add Obstacle to the scene
         Obstacle.FindData(Data);
         GetTree().CurrentScene.AddChild(ObstacleRoot);
+
+        occupiedPoints[spawnPoint] = Obstacle;
         // Move Obstacle to the selected spawn point
         ObstacleRoot.GlobalPosition = spawnPoint.GlobalPosition;
 

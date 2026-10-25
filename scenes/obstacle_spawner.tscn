@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://dkptc1ukw85n3" path="res://scripts/ObstacleData.cs" id="3_562o3"]
 [ext_resource type="Resource" uid="uid://dg4bwhtsjva6b" path="res://Data/Obstacle/Gramma.tres" id="4_c22tc"]
 [ext_resource type="Resource" uid="uid://joathcfpdpuo" path="res://Data/Obstacle/Bomb.tres" id="5_6804n"]
+[ext_resource type="Resource" uid="uid://cqms7878gbqo6" path="res://Data/Obstacle/WetFloorSign.tres" id="6_562o3"]
 
 [node name="ObstacleSpawner" type="Node3D" unique_id=1414794209]
 script = ExtResource("1_0ghqo")
 itemScene = ExtResource("2_6804n")
-ObstaclePool = Array[ExtResource("3_562o3")]([ExtResource("4_c22tc"), ExtResource("5_6804n")])
+ObstaclePool = Array[ExtResource("3_562o3")]([ExtResource("4_c22tc"), ExtResource("5_6804n"), ExtResource("6_562o3")])
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2009405652]
-wait_time = 2.0
+wait_time = 6.0

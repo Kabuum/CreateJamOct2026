@@ -1,8 +1,16 @@
+class_name PlayerCharacter
 extends CharacterBody3D
 
 @export_group("Sprites")
 @export var horse_idle: Texture2D
 @export var horse_turn: Texture2D
+@export var brown_horse_idle: Texture2D
+@export var brown_horse_turn: Texture2D
+@export var unicorn_idle: Texture2D
+@export var unicorn_turn: Texture2D
+@export var zebra_idle: Texture2D
+@export var zebra_turn: Texture2D
+
 @export var stun_tex: Texture2D
 @export var cart_back_idle: Texture2D
 @export var cart_back_turn: Texture2D
@@ -20,8 +28,12 @@ extends CharacterBody3D
 @onready var cart_front_sprite: Sprite3D = $Visuals/CartFront
 @onready var cart_back_sprite: Sprite3D = $Visuals/CartBack
 @onready var stun_sprite: Sprite3D = $Visuals/Stun
+@onready var speak_sprite: Sprite3D = $Visuals/Speak
 var anim_time := 0.0
+var speak_time := 0.0
 
+var _idle_tex: Texture2D
+var _turn_tex: Texture2D
 
 @export_group("Speed")
 @export var max_speed := 20.0
@@ -50,8 +62,8 @@ var anim_time := 0.0
 
 @export_group("Sound Effects")
 @export var horse_sounds: Array[AudioStream]
-@export var wall_min_volume := 0.25
-@export var drift_max_volume := 0.2
+@export var wall_min_volume := 0.05
+@export var drift_max_volume := 0.1
 @export var drift_ramp_up := 4.0 
 @export var drift_ramp_down := 6.0
 @export var drift_level := 0.0
@@ -59,6 +71,8 @@ var anim_time := 0.0
 @onready var wall_sfx : AudioStreamPlayer3D  = $WallSFX
 @onready var drift_sfx : AudioStreamPlayer3D  = $DriftSFX
 @onready var horse_sfx : AudioStreamPlayer3D  = $HorseSFX
+@onready var item_sfx : AudioStreamPlayer3D  = $ItemPickupSFX
+@onready var cashier_sfx : AudioStreamPlayer3D  = $CashierSFX
 
 @export var min_steer_strength := 0.35
 
@@ -69,6 +83,9 @@ var last_horse_index := -1
 var slow_timer := 0.0
 var slow_mult := 1.0
 var stun_anim_time := 0.0
+var display_name := ""
+var skin_index := 0
+
 
 func _physics_process(delta: float) -> void:
 	_update_drift_sound()
@@ -174,13 +191,23 @@ func play_horse(index: int ) -> void:
 	horse_sfx.stream = horse_sounds[index]
 	horse_sfx.pitch_scale = randf_range(0.80, 1.20)
 	horse_sfx.play()
+	speak_sprite.visible = true
+	speak_time = 2.0
 
 @rpc("authority", "call_local", "reliable")
 func play_wall_hit(volume_linear: float) -> void:
 	wall_sfx.volume_db = linear_to_db(volume_linear)
 	wall_sfx.pitch_scale = randf_range(0.9, 1.1)
 	wall_sfx.play()
+
+@rpc("any_peer", "call_local", "reliable")
+func play_item_pickup() -> void:
+	item_sfx.play()
 	
+@rpc("any_peer", "call_local", "reliable")
+func play_cashier() -> void:
+	cashier_sfx.play()
+
 
 func _update_drift_sound() -> void:
 	if drift_level > 0.05:
@@ -196,11 +223,15 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	$Label3D.text = display_name
+	_apply_skin()
 	stun_sprite.hframes = stun_frames
 	_setup_sprite(cart_front_sprite, 0)
 	_setup_sprite(cart_back_sprite, 1)
 	_setup_sprite(horse_sprite, 2)
 	_setup_sprite(stun_sprite, 3)
+	_setup_sprite(speak_sprite, 4)
+	speak_sprite.visible = false
 	_update_visuals(0.0)
 	
 	if is_multiplayer_authority():
@@ -218,11 +249,16 @@ func _setup_sprite(s: Sprite3D, priority: int) -> void:
 func _process(delta: float) -> void:
 	_update_visuals(delta, stun_timer > 0)
 	
+	if speak_time > 0.0:
+		speak_time -= delta
+		if speak_time <= 0.0:
+			speak_sprite.visible = false
+
 func _update_visuals(delta: float, stunned: bool = false) -> void:
 	var turning := absf(steer) > turn_treshhold
 	var flip := turning and steer > 0.0
 	
-	horse_sprite.texture = horse_turn if turning else horse_idle
+	horse_sprite.texture = _turn_tex if turning else _idle_tex
 	horse_sprite.hframes = horse_turn_frames if turning else horse_idle_frames
 	cart_front_sprite.texture = cart_front_turn if turning else cart_front_idle
 	cart_back_sprite.texture = cart_back_turn if turning else cart_back_idle
@@ -243,3 +279,22 @@ func _update_visuals(delta: float, stunned: bool = false) -> void:
 	var speed_ratio := clampf(speed / max_speed, 0.0, 1.0)
 	anim_time += delta * anim_fps * speed_ratio
 	horse_sprite.frame = int(anim_time) % maxi(horse_sprite.hframes, 1)
+
+func setup(n: String, s: int) -> void:
+	display_name = n
+	skin_index = s
+
+func _apply_skin() -> void:
+	match skin_index:
+		0:
+			_idle_tex = horse_idle
+			_turn_tex = horse_turn
+		1:
+			_idle_tex = unicorn_idle
+			_turn_tex = unicorn_turn
+		2:
+			_idle_tex = zebra_idle
+			_turn_tex = zebra_turn
+		_:
+			_idle_tex = horse_idle
+			_turn_tex = horse_turn
